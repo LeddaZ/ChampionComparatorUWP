@@ -320,6 +320,9 @@ namespace ChampionComparatorUWP
                 FirstChampImage.Source = new BitmapImage(new Uri($@"ms-appx:///Assets/Champions/{ch1}.png"));
                 SecondChampImage.Source = new BitmapImage(new Uri($@"ms-appx:///Assets/Champions/{ch2}.png"));
 
+                // Clean textboxes
+                FirstChampTxt.Text = "";
+                SecondChampTxt.Text = "";
             }
         }
     }
