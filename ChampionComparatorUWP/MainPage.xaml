@@ -56,8 +56,8 @@
             <TextBlock x:Name="Res6" HorizontalAlignment="Left" Margin="745,441,0,0" Text="0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="22" FontWeight="Normal" Visibility="Visible"/>
             <TextBlock x:Name="Res7" HorizontalAlignment="Left" Margin="461,477,0,0" Text="0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="22" FontWeight="Normal" Visibility="Visible"/>
             <TextBlock x:Name="Res8" HorizontalAlignment="Left" Margin="745,477,0,0" Text="0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="22" FontWeight="Normal" Visibility="Visible"/>
-            <TextBlock x:Name="Res9" HorizontalAlignment="Left" Margin="461,574,0,0" Text="0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="22" FontWeight="Normal" Visibility="Visible"/>
-            <TextBlock x:Name="Res10" HorizontalAlignment="Left" Margin="745,574,0,0" Text="0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="22" FontWeight="Normal" Visibility="Visible"/>
+            <TextBlock x:Name="Res9" HorizontalAlignment="Left" Margin="461,574,0,0" Text="0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="22" FontWeight="Normal" Visibility="Visible" Foreground="#FFA792DD"/>
+            <TextBlock x:Name="Res10" HorizontalAlignment="Left" Margin="745,574,0,0" Text="0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="22" FontWeight="Normal" Visibility="Visible" Foreground="#FFA792DD"/>
             <TextBlock x:Name="Res11" HorizontalAlignment="Left" Margin="461,610,0,0" Text="0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="22" FontWeight="Normal" Visibility="Visible"/>
             <TextBlock x:Name="Res12" HorizontalAlignment="Left" Margin="745,610,0,0" Text="0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="22" FontWeight="Normal" Visibility="Visible"/>
             <TextBlock x:Name="Res13" HorizontalAlignment="Left" Margin="461,646,0,0" Text="0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="22" FontWeight="Normal" Visibility="Visible"/>

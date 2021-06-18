@@ -1,11 +1,14 @@
 ﻿using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Net.Http;
 using Windows.ApplicationModel;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Media.Imaging;
+using Windows.UI;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 
@@ -156,6 +159,143 @@ namespace ChampionComparatorUWP
                 stats[43] = spell6.cooldownBurn;
                 stats[44] = spell7.cooldownBurn;
                 stats[45] = spell8.cooldownBurn;
+
+                // Set the colors of the most important stats. Netu died inside to do this.
+                if (champion1.stats.hp > champion2.stats.hp)
+                {
+                    Res1.Foreground = new SolidColorBrush(Colors.Green);
+                    Res2.Foreground = new SolidColorBrush(Colors.Red);
+                }
+                else if (champion1.stats.hp == champion2.stats.hp)
+                {
+                    Res1.Foreground = new SolidColorBrush(Colors.Blue);
+                    Res2.Foreground = new SolidColorBrush(Colors.Blue);
+                }
+                else
+                {
+                    Res2.Foreground = new SolidColorBrush(Colors.Green);
+                    Res1.Foreground = new SolidColorBrush(Colors.Red);
+                }
+
+                if (champion1.partype == champion2.partype)
+                {
+                    if (champion1.stats.mp > champion2.stats.mp)
+                    {
+                        Res11.Foreground = new SolidColorBrush(Colors.Green);
+                        Res12.Foreground = new SolidColorBrush(Colors.Red);
+                    }
+                    else if (champion1.stats.mp == champion2.stats.mp)
+                    {
+                        Res11.Foreground = new SolidColorBrush(Colors.Blue);
+                        Res12.Foreground = new SolidColorBrush(Colors.Blue);
+                    }
+                    else
+                    {
+                        Res12.Foreground = new SolidColorBrush(Colors.Green);
+                        Res11.Foreground = new SolidColorBrush(Colors.Red);
+                    }
+                }
+                else
+                {
+                    Res11.Foreground = new SolidColorBrush(ColorHelper.FromArgb(255, 167, 146, 221));
+                    Res12.Foreground = new SolidColorBrush(ColorHelper.FromArgb(255, 167, 146, 221));
+                }
+
+                if (champion1.stats.attackdamage > champion2.stats.attackdamage)
+                {
+                    Res19.Foreground = new SolidColorBrush(Colors.Green);
+                    Res20.Foreground = new SolidColorBrush(Colors.Red);
+                }
+                else if (champion1.stats.attackdamage == champion2.stats.attackdamage)
+                {
+                    Res19.Foreground = new SolidColorBrush(Colors.Blue);
+                    Res20.Foreground = new SolidColorBrush(Colors.Blue);
+                }
+                else
+                {
+                    Res20.Foreground = new SolidColorBrush(Colors.Green);
+                    Res19.Foreground = new SolidColorBrush(Colors.Red);
+                }
+
+                if (champion1.stats.attackrange > champion2.stats.attackrange)
+                {
+                    Res23.Foreground = new SolidColorBrush(Colors.Green);
+                    Res24.Foreground = new SolidColorBrush(Colors.Red);
+                }
+                else if (champion1.stats.attackrange == champion2.stats.attackrange)
+                {
+                    Res23.Foreground = new SolidColorBrush(Colors.Blue);
+                    Res24.Foreground = new SolidColorBrush(Colors.Blue);
+                }
+                else
+                {
+                    Res24.Foreground = new SolidColorBrush(Colors.Green);
+                    Res23.Foreground = new SolidColorBrush(Colors.Red);
+                }
+
+                if (champion1.stats.attackspeed > champion2.stats.attackspeed)
+                {
+                    Res25.Foreground = new SolidColorBrush(Colors.Green);
+                    Res26.Foreground = new SolidColorBrush(Colors.Red);
+                }
+                else if (champion1.stats.attackspeed == champion2.stats.attackspeed)
+                {
+                    Res25.Foreground = new SolidColorBrush(Colors.Blue);
+                    Res26.Foreground = new SolidColorBrush(Colors.Blue);
+                }
+                else
+                {
+                    Res26.Foreground = new SolidColorBrush(Colors.Green);
+                    Res25.Foreground = new SolidColorBrush(Colors.Red);
+                }
+
+                if (champion1.stats.armor > champion2.stats.armor)
+                {
+                    Res29.Foreground = new SolidColorBrush(Colors.Green);
+                    Res30.Foreground = new SolidColorBrush(Colors.Red);
+                }
+                else if (champion1.stats.armor == champion2.stats.armor)
+                {
+                    Res29.Foreground = new SolidColorBrush(Colors.Blue);
+                    Res30.Foreground = new SolidColorBrush(Colors.Blue);
+                }
+                else
+                {
+                    Res30.Foreground = new SolidColorBrush(Colors.Green);
+                    Res29.Foreground = new SolidColorBrush(Colors.Red);
+                }
+
+                if (champion1.stats.spellblock > champion2.stats.spellblock)
+                {
+                    Res33.Foreground = new SolidColorBrush(Colors.Green);
+                    Res34.Foreground = new SolidColorBrush(Colors.Red);
+                }
+                else if (champion1.stats.spellblock == champion2.stats.spellblock)
+                {
+                    Res33.Foreground = new SolidColorBrush(Colors.Blue);
+                    Res34.Foreground = new SolidColorBrush(Colors.Blue);
+                }
+                else
+                {
+                    Res34.Foreground = new SolidColorBrush(Colors.Green);
+                    Res33.Foreground = new SolidColorBrush(Colors.Red);
+                }
+
+                if (champion1.stats.movespeed > champion2.stats.movespeed)
+                {
+                    Res37.Foreground = new SolidColorBrush(Colors.Green);
+                    Res38.Foreground = new SolidColorBrush(Colors.Red);
+                }
+                else if (champion1.stats.movespeed == champion2.stats.movespeed)
+                {
+                    Res37.Foreground = new SolidColorBrush(Colors.Blue);
+                    Res38.Foreground = new SolidColorBrush(Colors.Blue);
+                }
+                else
+                {
+                    Res38.Foreground = new SolidColorBrush(Colors.Green);
+                    Res37.Foreground = new SolidColorBrush(Colors.Red);
+                }
 
                 // Create an array to store stats labels and champ names
                 TextBlock[] blocks = new TextBlock[46];
