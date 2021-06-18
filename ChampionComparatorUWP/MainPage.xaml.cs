@@ -1,11 +1,13 @@
 ﻿using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Net.Http;
 using Windows.ApplicationModel;
 using Windows.UI;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Media.Imaging;
 
@@ -323,6 +325,22 @@ namespace ChampionComparatorUWP
                 // Clean textboxes
                 FirstChampTxt.Text = "";
                 SecondChampTxt.Text = "";
+            }
+        }
+
+        // Easter eggs
+        private async void TextBlock_Clicked(object sender, TappedRoutedEventArgs e)
+        {
+            // The URI to launch
+            Uri uri = new Uri(@"https://raw.githubusercontent.com/LeddaZ/LeddaZ.github.io/master/files/heh.gif");
+
+            // Launch the URI
+            bool success = await Windows.System.Launcher.LaunchUriAsync(uri);
+
+            if (success)
+            {
+                Movement.Foreground = new SolidColorBrush(Colors.Magenta);
+                Movement.Text = "you got rickrolled lmao";
             }
         }
     }
