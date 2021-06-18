@@ -17,8 +17,8 @@
             <TextBox x:Name="SecondChampTxt" HorizontalAlignment="Left" Margin="32,184,0,0" Text="" TextWrapping="NoWrap" VerticalAlignment="Top" Width="194" FontSize="16"/>
             <Button x:Name="ConfirmBtn" Content="Confirm" Margin="32,242,0,0" VerticalAlignment="Top" FontSize="20" Click="ConfirmBtn_Click"/>
             <TextBlock x:Name="Patch" HorizontalAlignment="Left" Margin="314,27,0,0" Text="Game Patch: loading, please wait..." TextWrapping="Wrap" VerticalAlignment="Top" FontSize="20"/>
-            <Image x:Name="FirstChampImage" HorizontalAlignment="Left" Height="100" Margin="461,162,0,0" VerticalAlignment="Top" Width="100"/>
-            <Image x:Name="SecondChampImage" HorizontalAlignment="Left" Height="100" Margin="744,162,0,0" VerticalAlignment="Top" Width="100"/>
+            <Image x:Name="FirstChampImage" HorizontalAlignment="Left" Height="70" Margin="461,174,0,0" VerticalAlignment="Top" Width="70"/>
+            <Image x:Name="SecondChampImage" HorizontalAlignment="Left" Height="70" Margin="744,174,0,0" VerticalAlignment="Top" Width="70"/>
             <TextBlock x:Name="HPTitle" HorizontalAlignment="Left" Margin="34,326,0,0" Text="HP stats" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="28" FontWeight="Bold"/>
             <TextBlock x:Name="HP1" HorizontalAlignment="Left" Margin="34,372,0,0" Text="HP" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="20" FontWeight="Normal"/>
             <TextBlock x:Name="HP2" HorizontalAlignment="Left" Margin="34,406,0,0" Text="HP per level" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="20" FontWeight="Normal"/>
