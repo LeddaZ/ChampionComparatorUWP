@@ -50,6 +50,13 @@ namespace ChampionComparatorUWP
                     textBlock.Visibility = Visibility.Collapsed;
                 }
             }
+            // Hide advanced stats
+            foreach (TextBlock t in GetAdvancedStats())
+            {
+                t.Visibility = Visibility.Collapsed;
+            }
+            // Disable advanced stats button
+            AdvancedBtn.IsEnabled = false;
             // Display app version
             Version.Text += GetVersion();
             Level.Text = "Level: 1";
@@ -326,7 +333,8 @@ namespace ChampionComparatorUWP
                 // Create an array to store stats labels and champ names
                 TextBlock[] blocks = new TextBlock[46];
 
-                // Set every stat label and show stats, champ names and pics
+                /* Set every stat label and show stats, champ names and pics
+                 * (except advanced stats) */
                 int i = 0;
                 foreach (TextBlock textBlock in GetAllTextBlocks())
                 {
@@ -342,6 +350,10 @@ namespace ChampionComparatorUWP
                         textBlock.Visibility = Visibility.Visible;
                     }
                 }
+                foreach (TextBlock textBlock in GetAdvancedStats())
+                {
+                    textBlock.Visibility = Visibility.Collapsed;
+                }
                 FirstChampName.Text = champion1.name;
                 SecondChampName.Text = champion2.name;
                 FirstChampImage.Source = new BitmapImage(new Uri($@"ms-appx:///Assets/Champions/{ch1}.png"));
@@ -350,6 +362,9 @@ namespace ChampionComparatorUWP
                 // Clean textboxes
                 FirstChampTxt.Text = "";
                 SecondChampTxt.Text = "";
+
+                // Enable advanced stats button
+                AdvancedBtn.IsEnabled = true;
             }
         }
 
