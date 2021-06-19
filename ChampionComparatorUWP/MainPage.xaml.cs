@@ -1,6 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Net.Http;
 using Windows.ApplicationModel;
 using Windows.UI;
@@ -21,6 +22,7 @@ namespace ChampionComparatorUWP
     {
         public static string latestPatch;
         private string champ1, champ2, ch1, ch2;
+        private readonly string[] stats = new string[46];
         private readonly HttpClient client = new HttpClient();
 
         // Gets all TextBlock items in a Grid
@@ -50,7 +52,151 @@ namespace ChampionComparatorUWP
             }
             // Display app version
             Version.Text += GetVersion();
+            Level.Text = "Level: 1";
+            LevelSlider.Value = 1;
             GetPatch();
+        }
+
+        private void SetLevel()
+        {
+            Level.Text = "Level: " + LevelSlider.Value;
+            UpdateStats();
+        }
+
+        private void UpdateStats()
+        {
+            //Change HP Stats
+            Res1.Text = Math.Round(double.Parse(stats[0], CultureInfo.InvariantCulture) + (double.Parse(stats[2]) * (LevelSlider.Value - 1) * (0.7025 + (0.0175 * (LevelSlider.Value - 1)))), 2, MidpointRounding.ToEven).ToString();
+            Res2.Text = Math.Round(double.Parse(stats[1], CultureInfo.InvariantCulture) + (double.Parse(stats[3]) * (LevelSlider.Value - 1) * (0.7025 + (0.0175 * (LevelSlider.Value - 1)))), 2, MidpointRounding.ToEven).ToString();
+            if (Convert.ToDouble(Res1.Text) > Convert.ToDouble(Res2.Text))
+            {
+                Res1.Foreground = new SolidColorBrush(Colors.Green);
+                Res2.Foreground = new SolidColorBrush(Colors.Red);
+            }
+            else if (Convert.ToDouble(Res1.Text) == Convert.ToDouble(Res2.Text))
+            {
+                Res1.Foreground = new SolidColorBrush(Colors.Blue);
+                Res2.Foreground = new SolidColorBrush(Colors.Blue);
+            }
+            else
+            {
+                Res2.Foreground = new SolidColorBrush(Colors.Green);
+                Res1.Foreground = new SolidColorBrush(Colors.Red);
+            }
+
+            //Change HP Regen Stats
+            Res5.Text = Math.Round(double.Parse(stats[4], CultureInfo.InvariantCulture) + (double.Parse(stats[6]) / 5 * (LevelSlider.Value - 1) * (0.7025 + (0.0175 * (LevelSlider.Value - 1)))), 1, MidpointRounding.ToEven).ToString();
+            Res6.Text = Math.Round(double.Parse(stats[5], CultureInfo.InvariantCulture) + (double.Parse(stats[7]) / 5 * (LevelSlider.Value - 1) * (0.7025 + (0.0175 * (LevelSlider.Value - 1)))), 1, MidpointRounding.ToEven).ToString();
+
+            //Change Mana Stats
+            Res11.Text = Math.Round(double.Parse(stats[10], CultureInfo.InvariantCulture) + (double.Parse(stats[12]) * (LevelSlider.Value - 1) * (0.7025 + (0.0175 * (LevelSlider.Value - 1)))), 2, MidpointRounding.ToEven).ToString();
+            Res12.Text = Math.Round(double.Parse(stats[11], CultureInfo.InvariantCulture) + (double.Parse(stats[13]) * (LevelSlider.Value - 1) * (0.7025 + (0.0175 * (LevelSlider.Value - 1)))), 2, MidpointRounding.ToEven).ToString();
+            if (Res9.Text == Res10.Text)
+            {
+                if (Convert.ToDouble(Res11.Text) > Convert.ToDouble(Res12.Text))
+                {
+                    Res11.Foreground = new SolidColorBrush(Colors.Green);
+                    Res12.Foreground = new SolidColorBrush(Colors.Red);
+                }
+                else if (Convert.ToDouble(Res11.Text) == Convert.ToDouble(Res12.Text))
+                {
+                    Res11.Foreground = new SolidColorBrush(Colors.Blue);
+                    Res12.Foreground = new SolidColorBrush(Colors.Blue);
+                }
+                else
+                {
+                    Res12.Foreground = new SolidColorBrush(Colors.Green);
+                    Res11.Foreground = new SolidColorBrush(Colors.Red);
+                }
+            }
+
+            //Change Mana Regen Stats
+            Res15.Text = Math.Round(double.Parse(stats[14], CultureInfo.InvariantCulture) + (double.Parse(stats[16]) / 5 * (LevelSlider.Value - 1) * (0.7025 + (0.0175 * (LevelSlider.Value - 1)))), 1, MidpointRounding.ToEven).ToString();
+            Res16.Text = Math.Round(double.Parse(stats[15], CultureInfo.InvariantCulture) + (double.Parse(stats[17]) / 5 * (LevelSlider.Value - 1) * (0.7025 + (0.0175 * (LevelSlider.Value - 1)))), 1, MidpointRounding.ToEven).ToString();
+
+            //Change Attack Stats
+            Res19.Text = Math.Round(double.Parse(stats[18], CultureInfo.InvariantCulture) + (double.Parse(stats[20]) * (LevelSlider.Value - 1) * (0.7025 + (0.0175 * (LevelSlider.Value - 1)))), 2, MidpointRounding.ToEven).ToString();
+            Res20.Text = Math.Round(double.Parse(stats[19], CultureInfo.InvariantCulture) + (double.Parse(stats[21]) * (LevelSlider.Value - 1) * (0.7025 + (0.0175 * (LevelSlider.Value - 1)))), 2, MidpointRounding.ToEven).ToString();
+            if (Convert.ToDouble(Res19.Text) > Convert.ToDouble(Res20.Text))
+            {
+                Res19.Foreground = new SolidColorBrush(Colors.Green);
+                Res20.Foreground = new SolidColorBrush(Colors.Red);
+            }
+            else if (Convert.ToDouble(Res19.Text) == Convert.ToDouble(Res20.Text))
+            {
+                Res19.Foreground = new SolidColorBrush(Colors.Blue);
+                Res20.Foreground = new SolidColorBrush(Colors.Blue);
+            }
+            else
+            {
+                Res20.Foreground = new SolidColorBrush(Colors.Green);
+                Res19.Foreground = new SolidColorBrush(Colors.Red);
+            }
+
+            //Change Attack Stats
+            string result1 = Math.Round(0 + (Convert.ToDouble(stats[26].TrimEnd('%')) * (LevelSlider.Value - 1) * (0.7025 + (0.0175 * (LevelSlider.Value - 1)))), 3, MidpointRounding.ToEven).ToString();
+            string result2 = Math.Round(0 + (Convert.ToDouble(stats[27].TrimEnd('%')) * (LevelSlider.Value - 1) * (0.7025 + (0.0175 * (LevelSlider.Value - 1)))), 3, MidpointRounding.ToEven).ToString();
+            Res25.Text = Math.Round(double.Parse(stats[24], CultureInfo.InvariantCulture) * (1 + (double.Parse(result1) / 100)), 3, MidpointRounding.ToEven).ToString();
+            Res26.Text = Math.Round(double.Parse(stats[25], CultureInfo.InvariantCulture) * (1 + (double.Parse(result2) / 100)), 3, MidpointRounding.ToEven).ToString();
+            if (Convert.ToDouble(Res25.Text) > Convert.ToDouble(Res26.Text))
+            {
+                Res25.Foreground = new SolidColorBrush(Colors.Green);
+                Res26.Foreground = new SolidColorBrush(Colors.Red);
+            }
+            else if (Convert.ToDouble(Res25.Text) == Convert.ToDouble(Res26.Text))
+            {
+                Res25.Foreground = new SolidColorBrush(Colors.Blue);
+                Res26.Foreground = new SolidColorBrush(Colors.Blue);
+            }
+            else
+            {
+                Res25.Foreground = new SolidColorBrush(Colors.Green);
+                Res26.Foreground = new SolidColorBrush(Colors.Red);
+            }
+
+            //Change Armor Stats
+            Res29.Text = Math.Round(double.Parse(stats[28], CultureInfo.InvariantCulture) + (double.Parse(stats[30]) * (LevelSlider.Value - 1) * (0.7025 + (0.0175 * (LevelSlider.Value - 1)))), 2, MidpointRounding.ToEven).ToString();
+            Res30.Text = Math.Round(double.Parse(stats[29], CultureInfo.InvariantCulture) + (double.Parse(stats[31]) * (LevelSlider.Value - 1) * (0.7025 + (0.0175 * (LevelSlider.Value - 1)))), 2, MidpointRounding.ToEven).ToString();
+            if (Convert.ToDouble(Res29.Text) > Convert.ToDouble(Res30.Text))
+            {
+                Res29.Foreground = new SolidColorBrush(Colors.Green);
+                Res30.Foreground = new SolidColorBrush(Colors.Red);
+            }
+            else if (Convert.ToDouble(Res29.Text) == Convert.ToDouble(Res30.Text))
+            {
+                Res29.Foreground = new SolidColorBrush(Colors.Blue);
+                Res30.Foreground = new SolidColorBrush(Colors.Blue);
+            }
+            else
+            {
+                Res30.Foreground = new SolidColorBrush(Colors.Green);
+                Res29.Foreground = new SolidColorBrush(Colors.Red);
+            }
+
+            //Change Magic Resistance Stats
+            Res33.Text = Math.Round(double.Parse(stats[32], CultureInfo.InvariantCulture) + (double.Parse(stats[34]) * (LevelSlider.Value - 1) * (0.7025 + (0.0175 * (LevelSlider.Value - 1)))), 2, MidpointRounding.ToEven).ToString();
+            Res34.Text = Math.Round(double.Parse(stats[33], CultureInfo.InvariantCulture) + (double.Parse(stats[35]) * (LevelSlider.Value - 1) * (0.7025 + (0.0175 * (LevelSlider.Value - 1)))), 2, MidpointRounding.ToEven).ToString();
+
+            if (Convert.ToDouble(Res33.Text) > Convert.ToDouble(Res34.Text))
+            {
+                Res33.Foreground = new SolidColorBrush(Colors.Green);
+                Res34.Foreground = new SolidColorBrush(Colors.Red);
+            }
+            else if (Convert.ToDouble(Res33.Text) == Convert.ToDouble(Res34.Text))
+            {
+                Res33.Foreground = new SolidColorBrush(Colors.Blue);
+                Res34.Foreground = new SolidColorBrush(Colors.Blue);
+            }
+            else
+            {
+                Res34.Foreground = new SolidColorBrush(Colors.Green);
+                Res33.Foreground = new SolidColorBrush(Colors.Red);
+            }
+        }
+
+        private void Slider_ManipulationCompleted(object sender, ManipulationCompletedRoutedEventArgs e)
+        {
+            SetLevel();
         }
 
         private void ConfirmBtn_Click(object sender, RoutedEventArgs e)
@@ -112,7 +258,6 @@ namespace ChampionComparatorUWP
 
                 /* Store stats for both champs in a string array. I died inside to do this
                  * in the original ChampionComparatorGUI */
-                string[] stats = new string[46];
                 stats[0] = champion1.stats.hp.ToString();
                 stats[1] = champion2.stats.hp.ToString();
                 stats[2] = $"+{champion1.stats.hpperlevel}";
