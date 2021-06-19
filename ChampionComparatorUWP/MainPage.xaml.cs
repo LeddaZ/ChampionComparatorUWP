@@ -23,6 +23,7 @@ namespace ChampionComparatorUWP
         public static string latestPatch;
         private string champ1, champ2, ch1, ch2;
         private readonly string[] stats = new string[46];
+        private readonly List<TextBlock> advancedStats = new List<TextBlock>();
         private readonly HttpClient client = new HttpClient();
 
         // Gets all TextBlock items in a Grid
@@ -152,6 +153,55 @@ namespace ChampionComparatorUWP
             {
                 tb2.Foreground = new SolidColorBrush(Colors.Green);
                 tb1.Foreground = new SolidColorBrush(Colors.Red);
+            }
+        }
+
+        private List<TextBlock> GetAdvancedStats()
+        {
+            advancedStats.Add(HP2);
+            advancedStats.Add(HP4);
+            advancedStats.Add(Mana3);
+            advancedStats.Add(Mana5);
+            advancedStats.Add(Attack2);
+            advancedStats.Add(Attack5);
+            advancedStats.Add(Armor2);
+            advancedStats.Add(Magic2);
+            advancedStats.Add(Res3);
+            advancedStats.Add(Res4);
+            advancedStats.Add(Res7);
+            advancedStats.Add(Res8);
+            advancedStats.Add(Res13);
+            advancedStats.Add(Res14);
+            advancedStats.Add(Res17);
+            advancedStats.Add(Res18);
+            advancedStats.Add(Res21);
+            advancedStats.Add(Res22);
+            advancedStats.Add(Res27);
+            advancedStats.Add(Res28);
+            advancedStats.Add(Res31);
+            advancedStats.Add(Res32);
+            advancedStats.Add(Res35);
+            advancedStats.Add(Res36);
+            return advancedStats;
+        }
+
+        private void AdvancedBtn_Click(object sender, RoutedEventArgs e)
+        {
+            if (AdvancedBtn.Content.ToString().StartsWith("Show"))
+            {
+                foreach (TextBlock t in GetAdvancedStats())
+                {
+                    t.Visibility = Visibility.Visible;
+                }
+                AdvancedBtn.Content = "Hide advanced stats";
+            }
+            else
+            {
+                foreach (TextBlock t in GetAdvancedStats())
+                {
+                    t.Visibility = Visibility.Collapsed;
+                }
+                AdvancedBtn.Content = "Show advanced stats";
             }
         }
 
