@@ -10,7 +10,7 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" d:DesignHeight="2623.067">
 
     <ScrollViewer x:Name="Scrollerino" Margin="0,0,1,1" HorizontalScrollMode="Enabled">
-        <Grid x:Name="MainGrid" Margin="0,0,0,0" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto" Padding="0,0,0,0" Width="1500" Height="1529">
+        <Grid x:Name="MainGrid" Margin="0,0,0,0" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto" Padding="0,0,0,0" Width="1500" Height="1620">
             <TextBlock x:Name="FirstChampLbl" HorizontalAlignment="Left" Margin="32,26,0,0" Text="First Champion" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="20"/>
             <TextBlock x:Name="SecondChampLbl" HorizontalAlignment="Left" Margin="32,134,0,0" Text="Second Champion" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="20"/>
             <TextBox x:Name="FirstChampTxt" HorizontalAlignment="Left" Margin="32,76,0,0" Text="" TextWrapping="NoWrap" VerticalAlignment="Top" Width="194" FontSize="16"/>
@@ -20,86 +20,87 @@
             <Image x:Name="FirstChampImage" HorizontalAlignment="Left" Height="70" Margin="461,174,0,0" VerticalAlignment="Top" Width="70"/>
             <Image x:Name="SecondChampImage" HorizontalAlignment="Left" Height="70" Margin="744,174,0,0" VerticalAlignment="Top" Width="70"/>
             <TextBlock x:Name="HPTitle" HorizontalAlignment="Left" Margin="34,326,0,0" Text="HP stats" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="28" FontWeight="Bold"/>
-            <TextBlock x:Name="HP1" HorizontalAlignment="Left" Margin="34,372,0,0" Text="HP" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="20" FontWeight="Normal"/>
-            <TextBlock x:Name="HP2" HorizontalAlignment="Left" Margin="34,406,0,0" Text="HP per level" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="20" FontWeight="Normal"/>
-            <TextBlock x:Name="HP3" HorizontalAlignment="Left" Margin="34,441,0,0" Text="HP regen / sec" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="20" FontWeight="Normal"/>
-            <TextBlock x:Name="HP4" HorizontalAlignment="Left" Margin="34,477,0,0" Text="HP regen per level / sec" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="20" FontWeight="Normal"/>
-            <TextBlock x:Name="ManaTitle" HorizontalAlignment="Left" Margin="34,528,0,0" Text="Mana stats" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="28" FontWeight="Bold"/>
-            <TextBlock x:Name="Mana1" HorizontalAlignment="Left" Margin="34,574,0,0" Text="Type" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="22" FontWeight="Normal"/>
-            <TextBlock x:Name="Mana2" HorizontalAlignment="Left" Margin="34,610,0,0" Text="Mana" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="22" FontWeight="Normal"/>
-            <TextBlock x:Name="Mana3" HorizontalAlignment="Left" Margin="34,646,0,0" Text="Mana per level" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="22" FontWeight="Normal"/>
-            <TextBlock x:Name="Mana4" HorizontalAlignment="Left" Margin="34,682,0,0" Text="Mana regen / sec" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="22" FontWeight="Normal"/>
-            <TextBlock x:Name="Mana5" HorizontalAlignment="Left" Margin="34,718,0,757" Text="Mana regen per level / sec" TextWrapping="Wrap" FontSize="22" FontWeight="Normal"/>
-            <TextBlock x:Name="AttackTitle" HorizontalAlignment="Left" Margin="34,766,0,0" Text="Attack stats" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="28" FontWeight="Bold"/>
-            <TextBlock x:Name="Attack1" HorizontalAlignment="Left" Margin="34,812,0,0" Text="Attack damage" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="22" FontWeight="Normal"/>
-            <TextBlock x:Name="Attack2" HorizontalAlignment="Left" Margin="34,848,0,0" Text="Attack damage per level" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="22" FontWeight="Normal"/>
-            <TextBlock x:Name="Attack3" HorizontalAlignment="Left" Margin="34,884,0,0" Text="Attack range" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="22" FontWeight="Normal"/>
-            <TextBlock x:Name="Attack4" HorizontalAlignment="Left" Margin="34,920,0,0" Text="Attack speed" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="22" FontWeight="Normal"/>
-            <TextBlock x:Name="Attack5" HorizontalAlignment="Left" Margin="34,956,0,0" Text="Attack speed per level" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="22" FontWeight="Normal"/>
-            <TextBlock x:Name="ArmorTitle" HorizontalAlignment="Left" Margin="34,1006,0,0" Text="Armor stats" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="28" FontWeight="Bold"/>
-            <TextBlock x:Name="Armor1" HorizontalAlignment="Left" Margin="34,1052,0,0" Text="Armor" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="22" FontWeight="Normal"/>
-            <TextBlock x:Name="Armor2" HorizontalAlignment="Left" Margin="34,1088,0,0" Text="Armor per level" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="22" FontWeight="Normal"/>
-            <TextBlock x:Name="MagicTitle" HorizontalAlignment="Left" Margin="34,1138,0,0" Text="Magic stats" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="28" FontWeight="Bold"/>
-            <TextBlock x:Name="Magic1" HorizontalAlignment="Left" Margin="34,1184,0,0" Text="Magic resistance" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="22" FontWeight="Normal"/>
-            <TextBlock x:Name="Magic2" HorizontalAlignment="Left" Margin="34,1220,0,0" Text="Magic resistance per level" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="22" FontWeight="Normal"/>
-            <TextBlock x:Name="Movement" HorizontalAlignment="Left" Margin="34,1270,0,0" Text="Movement speed" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="22" FontWeight="Normal" Tapped="TextBlock_Clicked"/>
-            <TextBlock x:Name="CooldownTitle" HorizontalAlignment="Left" Margin="34,1320,0,0" Text="Cooldown stats" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="28" FontWeight="Bold"/>
-            <TextBlock x:Name="Cooldown1" HorizontalAlignment="Left" Margin="34,1366,0,0" Text="Q cooldown" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="22" FontWeight="Normal"/>
-            <TextBlock x:Name="Cooldown2" HorizontalAlignment="Left" Margin="34,1402,0,0" Text="W cooldown" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="22" FontWeight="Normal"/>
-            <TextBlock x:Name="Cooldown3" HorizontalAlignment="Left" Margin="34,1438,0,0" Text="E cooldown" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="22" FontWeight="Normal"/>
-            <TextBlock x:Name="Cooldown4" HorizontalAlignment="Left" Margin="34,1474,0,0" Text="R cooldown" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="22" FontWeight="Normal"/>
-            <TextBlock x:Name="Res1" HorizontalAlignment="Left" Margin="461,372,0,0" Text="0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="20" FontWeight="Normal" Visibility="Visible"/>
-            <TextBlock x:Name="Res2" HorizontalAlignment="Left" Margin="745,372,0,0" Text="0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="20" FontWeight="Normal" Visibility="Visible"/>
-            <TextBlock x:Name="Res3" HorizontalAlignment="Left" Margin="461,406,0,0" Text="0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="20" FontWeight="Normal" Visibility="Visible"/>
-            <TextBlock x:Name="Res4" HorizontalAlignment="Left" Margin="745,406,0,0" Text="0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="20" FontWeight="Normal" Visibility="Visible"/>
-            <TextBlock x:Name="Res5" HorizontalAlignment="Left" Margin="461,441,0,0" Text="0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="22" FontWeight="Normal" Visibility="Visible"/>
-            <TextBlock x:Name="Res6" HorizontalAlignment="Left" Margin="745,441,0,0" Text="0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="22" FontWeight="Normal" Visibility="Visible"/>
-            <TextBlock x:Name="Res7" HorizontalAlignment="Left" Margin="461,477,0,0" Text="0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="22" FontWeight="Normal" Visibility="Visible"/>
-            <TextBlock x:Name="Res8" HorizontalAlignment="Left" Margin="745,477,0,0" Text="0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="22" FontWeight="Normal" Visibility="Visible"/>
-            <TextBlock x:Name="Res9" HorizontalAlignment="Left" Margin="461,574,0,0" Text="0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="22" FontWeight="Normal" Visibility="Visible" Foreground="#FFA792DD"/>
-            <TextBlock x:Name="Res10" HorizontalAlignment="Left" Margin="745,574,0,0" Text="0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="22" FontWeight="Normal" Visibility="Visible" Foreground="#FFA792DD"/>
-            <TextBlock x:Name="Res11" HorizontalAlignment="Left" Margin="461,610,0,0" Text="0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="22" FontWeight="Normal" Visibility="Visible"/>
-            <TextBlock x:Name="Res12" HorizontalAlignment="Left" Margin="745,610,0,0" Text="0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="22" FontWeight="Normal" Visibility="Visible"/>
-            <TextBlock x:Name="Res13" HorizontalAlignment="Left" Margin="461,646,0,0" Text="0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="22" FontWeight="Normal" Visibility="Visible"/>
-            <TextBlock x:Name="Res14" HorizontalAlignment="Left" Margin="745,646,0,0" Text="0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="22" FontWeight="Normal" Visibility="Visible"/>
-            <TextBlock x:Name="Res15" HorizontalAlignment="Left" Margin="461,682,0,0" Text="0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="22" FontWeight="Normal" Visibility="Visible"/>
-            <TextBlock x:Name="Res16" HorizontalAlignment="Left" Margin="745,682,0,0" Text="0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="22" FontWeight="Normal" Visibility="Visible"/>
-            <TextBlock x:Name="Res17" HorizontalAlignment="Left" Margin="461,718,0,0" Text="0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="22" FontWeight="Normal" Visibility="Visible"/>
-            <TextBlock x:Name="Res18" HorizontalAlignment="Left" Margin="745,718,0,0" Text="0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="22" FontWeight="Normal" Visibility="Visible"/>
-            <TextBlock x:Name="Res19" HorizontalAlignment="Left" Margin="461,812,0,0" Text="0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="22" FontWeight="Normal" Visibility="Visible"/>
-            <TextBlock x:Name="Res20" HorizontalAlignment="Left" Margin="745,812,0,0" Text="0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="22" FontWeight="Normal" Visibility="Visible"/>
-            <TextBlock x:Name="Res21" HorizontalAlignment="Left" Margin="461,848,0,0" Text="0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="22" FontWeight="Normal" Visibility="Visible"/>
-            <TextBlock x:Name="Res22" HorizontalAlignment="Left" Margin="745,848,0,0" Text="0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="22" FontWeight="Normal" Visibility="Visible"/>
-            <TextBlock x:Name="Res23" HorizontalAlignment="Left" Margin="461,884,0,0" Text="0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="22" FontWeight="Normal" Visibility="Visible"/>
-            <TextBlock x:Name="Res24" HorizontalAlignment="Left" Margin="745,884,0,0" Text="0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="20" FontWeight="Normal" Visibility="Visible"/>
-            <TextBlock x:Name="Res25" HorizontalAlignment="Left" Margin="461,920,0,0" Text="0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="20" FontWeight="Normal" Visibility="Visible"/>
-            <TextBlock x:Name="Res26" HorizontalAlignment="Left" Margin="745,920,0,0" Text="0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="20" FontWeight="Normal" Visibility="Visible"/>
-            <TextBlock x:Name="Res27" HorizontalAlignment="Left" Margin="461,956,0,0" Text="0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="20" FontWeight="Normal" Visibility="Visible"/>
-            <TextBlock x:Name="Res28" HorizontalAlignment="Left" Margin="745,956,0,0" Text="0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="22" FontWeight="Normal" Visibility="Visible"/>
-            <TextBlock x:Name="Res29" HorizontalAlignment="Left" Margin="461,1052,0,0" Text="0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="22" FontWeight="Normal" Visibility="Visible"/>
-            <TextBlock x:Name="Res30" HorizontalAlignment="Left" Margin="745,1052,0,0" Text="0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="22" FontWeight="Normal" Visibility="Visible"/>
-            <TextBlock x:Name="Res31" HorizontalAlignment="Left" Margin="461,1088,0,0" Text="0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="22" FontWeight="Normal" Visibility="Visible"/>
-            <TextBlock x:Name="Res32" HorizontalAlignment="Left" Margin="745,1088,0,0" Text="0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="22" FontWeight="Normal" Visibility="Visible"/>
-            <TextBlock x:Name="Res33" HorizontalAlignment="Left" Margin="461,1184,0,0" Text="0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="22" FontWeight="Normal" Visibility="Visible"/>
-            <TextBlock x:Name="Res34" HorizontalAlignment="Left" Margin="745,1184,0,0" Text="0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="22" FontWeight="Normal" Visibility="Visible"/>
-            <TextBlock x:Name="Res35" HorizontalAlignment="Left" Margin="461,1220,0,0" Text="0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="22" FontWeight="Normal" Visibility="Visible"/>
-            <TextBlock x:Name="Res36" HorizontalAlignment="Left" Margin="745,1220,0,0" Text="0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="22" FontWeight="Normal" Visibility="Visible"/>
-            <TextBlock x:Name="Res37" HorizontalAlignment="Left" Margin="461,1270,0,0" Text="0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="22" FontWeight="Normal" Visibility="Visible"/>
-            <TextBlock x:Name="Res38" HorizontalAlignment="Left" Margin="745,1270,0,0" Text="0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="22" FontWeight="Normal" Visibility="Visible"/>
-            <TextBlock x:Name="Res39" HorizontalAlignment="Left" Margin="461,1366,0,0" Text="0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="22" FontWeight="Normal" Visibility="Visible"/>
-            <TextBlock x:Name="Res40" HorizontalAlignment="Left" Margin="745,1366,0,0" Text="0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="22" FontWeight="Normal" Visibility="Visible"/>
-            <TextBlock x:Name="Res41" HorizontalAlignment="Left" Margin="461,1402,0,0" Text="0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="22" FontWeight="Normal" Visibility="Visible"/>
-            <TextBlock x:Name="Res42" HorizontalAlignment="Left" Margin="745,1402,0,0" Text="0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="22" FontWeight="Normal" Visibility="Visible"/>
-            <TextBlock x:Name="Res43" HorizontalAlignment="Left" Margin="461,1438,0,0" Text="0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="22" FontWeight="Normal" Visibility="Visible"/>
-            <TextBlock x:Name="Res44" HorizontalAlignment="Left" Margin="745,1438,0,0" Text="0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="22" FontWeight="Normal" Visibility="Visible"/>
-            <TextBlock x:Name="Res45" HorizontalAlignment="Left" Margin="461,1474,0,0" Text="0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="22" FontWeight="Normal" Visibility="Visible"/>
-            <TextBlock x:Name="Res46" HorizontalAlignment="Left" Margin="745,1474,0,0" Text="0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="22" FontWeight="Normal" Visibility="Visible"/>
+            <TextBlock x:Name="HP1" HorizontalAlignment="Left" Margin="34,372,0,0" Text="HP" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="22" FontWeight="Normal"/>
+            <TextBlock x:Name="HP2" HorizontalAlignment="Left" Margin="34,1327,0,0" Text="HP per level" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="22" FontWeight="Normal"/>
+            <TextBlock x:Name="HP3" HorizontalAlignment="Left" Margin="34,409,0,0" Text="HP regen / sec" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="22" FontWeight="Normal"/>
+            <TextBlock x:Name="HP4" HorizontalAlignment="Left" Margin="34,1363,0,0" Text="HP regen per level / sec" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="22" FontWeight="Normal"/>
+            <TextBlock x:Name="ManaTitle" HorizontalAlignment="Left" Margin="34,468,0,0" Text="Mana stats" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="28" FontWeight="Bold"/>
+            <TextBlock x:Name="Mana1" HorizontalAlignment="Left" Margin="34,514,0,0" Text="Type" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="22" FontWeight="Normal"/>
+            <TextBlock x:Name="Mana2" HorizontalAlignment="Left" Margin="34,550,0,0" Text="Mana" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="22" FontWeight="Normal"/>
+            <TextBlock x:Name="Mana3" HorizontalAlignment="Left" Margin="34,1399,0,0" Text="Mana per level" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="22" FontWeight="Normal"/>
+            <TextBlock x:Name="Mana4" HorizontalAlignment="Left" Margin="34,586,0,0" Text="Mana regen / sec" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="22" FontWeight="Normal"/>
+            <TextBlock x:Name="Mana5" HorizontalAlignment="Left" Margin="34,1435,0,55" Text="Mana regen per level / sec" TextWrapping="Wrap" FontSize="22" FontWeight="Normal"/>
+            <TextBlock x:Name="AttackTitle" HorizontalAlignment="Left" Margin="34,645,0,0" Text="Attack stats" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="28" FontWeight="Bold"/>
+            <TextBlock x:Name="Attack1" HorizontalAlignment="Left" Margin="34,691,0,0" Text="Attack damage" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="22" FontWeight="Normal"/>
+            <TextBlock x:Name="Attack2" HorizontalAlignment="Left" Margin="34,1471,0,0" Text="Attack damage per level" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="22" FontWeight="Normal"/>
+            <TextBlock x:Name="Attack3" HorizontalAlignment="Left" Margin="34,727,0,0" Text="Attack range" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="22" FontWeight="Normal"/>
+            <TextBlock x:Name="Attack4" HorizontalAlignment="Left" Margin="34,763,0,0" Text="Attack speed" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="22" FontWeight="Normal"/>
+            <TextBlock x:Name="Attack5" HorizontalAlignment="Left" Margin="34,1507,0,0" Text="Attack speed per level" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="22" FontWeight="Normal"/>
+            <TextBlock x:Name="ArmorTitle" HorizontalAlignment="Left" Margin="34,822,0,0" Text="Armor stats" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="28" FontWeight="Bold"/>
+            <TextBlock x:Name="Armor1" HorizontalAlignment="Left" Margin="34,868,0,0" Text="Armor" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="22" FontWeight="Normal"/>
+            <TextBlock x:Name="Armor2" HorizontalAlignment="Left" Margin="34,1543,0,0" Text="Armor per level" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="22" FontWeight="Normal"/>
+            <TextBlock x:Name="MagicTitle" HorizontalAlignment="Left" Margin="34,927,0,0" Text="Magic stats" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="28" FontWeight="Bold"/>
+            <TextBlock x:Name="Magic1" HorizontalAlignment="Left" Margin="34,973,0,0" Text="Magic resistance" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="22" FontWeight="Normal"/>
+            <TextBlock x:Name="Magic2" HorizontalAlignment="Left" Margin="34,1579,0,0" Text="Magic resistance per level" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="22" FontWeight="Normal"/>
+            <TextBlock x:Name="Movement" HorizontalAlignment="Left" Margin="34,1009,0,0" Text="Movement speed" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="22" FontWeight="Normal" Tapped="TextBlock_Clicked"/>
+            <TextBlock x:Name="CooldownTitle" HorizontalAlignment="Left" Margin="34,1068,0,0" Text="Cooldown stats" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="28" FontWeight="Bold"/>
+            <TextBlock x:Name="Cooldown1" HorizontalAlignment="Left" Margin="34,1114,0,0" Text="Q cooldown" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="22" FontWeight="Normal"/>
+            <TextBlock x:Name="Cooldown2" HorizontalAlignment="Left" Margin="34,1150,0,0" Text="W cooldown" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="22" FontWeight="Normal"/>
+            <TextBlock x:Name="Cooldown3" HorizontalAlignment="Left" Margin="34,1186,0,0" Text="E cooldown" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="22" FontWeight="Normal"/>
+            <TextBlock x:Name="Cooldown4" HorizontalAlignment="Left" Margin="34,1222,0,0" Text="R cooldown" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="22" FontWeight="Normal"/>
+            <TextBlock x:Name="Res1" HorizontalAlignment="Left" Margin="461,372,0,0" Text="0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="22" FontWeight="Normal" Visibility="Visible"/>
+            <TextBlock x:Name="Res2" HorizontalAlignment="Left" Margin="745,372,0,0" Text="0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="22" FontWeight="Normal" Visibility="Visible"/>
+            <TextBlock x:Name="Res3" HorizontalAlignment="Left" Margin="461,1327,0,0" Text="0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="22" FontWeight="Normal" Visibility="Visible"/>
+            <TextBlock x:Name="Res4" HorizontalAlignment="Left" Margin="745,1327,0,0" Text="0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="22" FontWeight="Normal" Visibility="Visible"/>
+            <TextBlock x:Name="Res5" HorizontalAlignment="Left" Margin="461,409,0,0" Text="0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="22" FontWeight="Normal" Visibility="Visible"/>
+            <TextBlock x:Name="Res6" HorizontalAlignment="Left" Margin="745,409,0,0" Text="0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="22" FontWeight="Normal" Visibility="Visible"/>
+            <TextBlock x:Name="Res7" HorizontalAlignment="Left" Margin="461,1363,0,0" Text="0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="22" FontWeight="Normal" Visibility="Visible"/>
+            <TextBlock x:Name="Res8" HorizontalAlignment="Left" Margin="745,1363,0,0" Text="0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="22" FontWeight="Normal" Visibility="Visible"/>
+            <TextBlock x:Name="Res9" HorizontalAlignment="Left" Margin="461,514,0,0" Text="0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="22" FontWeight="Normal" Visibility="Visible" Foreground="#FFA792DD"/>
+            <TextBlock x:Name="Res10" HorizontalAlignment="Left" Margin="745,514,0,0" Text="0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="22" FontWeight="Normal" Visibility="Visible" Foreground="#FFA792DD"/>
+            <TextBlock x:Name="Res11" HorizontalAlignment="Left" Margin="461,550,0,0" Text="0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="22" FontWeight="Normal" Visibility="Visible"/>
+            <TextBlock x:Name="Res12" HorizontalAlignment="Left" Margin="745,550,0,0" Text="0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="22" FontWeight="Normal" Visibility="Visible"/>
+            <TextBlock x:Name="Res13" HorizontalAlignment="Left" Margin="461,1399,0,0" Text="0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="22" FontWeight="Normal" Visibility="Visible"/>
+            <TextBlock x:Name="Res14" HorizontalAlignment="Left" Margin="745,1399,0,0" Text="0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="22" FontWeight="Normal" Visibility="Visible"/>
+            <TextBlock x:Name="Res15" HorizontalAlignment="Left" Margin="461,586,0,0" Text="0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="22" FontWeight="Normal" Visibility="Visible"/>
+            <TextBlock x:Name="Res16" HorizontalAlignment="Left" Margin="745,586,0,0" Text="0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="22" FontWeight="Normal" Visibility="Visible"/>
+            <TextBlock x:Name="Res17" HorizontalAlignment="Left" Margin="461,1435,0,0" Text="0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="22" FontWeight="Normal" Visibility="Visible"/>
+            <TextBlock x:Name="Res18" HorizontalAlignment="Left" Margin="745,1435,0,0" Text="0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="22" FontWeight="Normal" Visibility="Visible"/>
+            <TextBlock x:Name="Res19" HorizontalAlignment="Left" Margin="461,691,0,0" Text="0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="22" FontWeight="Normal" Visibility="Visible"/>
+            <TextBlock x:Name="Res20" HorizontalAlignment="Left" Margin="745,691,0,0" Text="0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="22" FontWeight="Normal" Visibility="Visible"/>
+            <TextBlock x:Name="Res21" HorizontalAlignment="Left" Margin="461,1471,0,0" Text="0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="22" FontWeight="Normal" Visibility="Visible"/>
+            <TextBlock x:Name="Res22" HorizontalAlignment="Left" Margin="745,1471,0,0" Text="0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="22" FontWeight="Normal" Visibility="Visible"/>
+            <TextBlock x:Name="Res23" HorizontalAlignment="Left" Margin="461,727,0,0" Text="0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="22" FontWeight="Normal" Visibility="Visible"/>
+            <TextBlock x:Name="Res24" HorizontalAlignment="Left" Margin="745,727,0,0" Text="0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="22" FontWeight="Normal" Visibility="Visible"/>
+            <TextBlock x:Name="Res25" HorizontalAlignment="Left" Margin="461,763,0,0" Text="0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="22" FontWeight="Normal" Visibility="Visible"/>
+            <TextBlock x:Name="Res26" HorizontalAlignment="Left" Margin="745,763,0,0" Text="0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="22" FontWeight="Normal" Visibility="Visible"/>
+            <TextBlock x:Name="Res27" HorizontalAlignment="Left" Margin="461,1507,0,0" Text="0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="22" FontWeight="Normal" Visibility="Visible"/>
+            <TextBlock x:Name="Res28" HorizontalAlignment="Left" Margin="745,1507,0,0" Text="0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="22" FontWeight="Normal" Visibility="Visible"/>
+            <TextBlock x:Name="Res29" HorizontalAlignment="Left" Margin="461,868,0,0" Text="0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="22" FontWeight="Normal" Visibility="Visible"/>
+            <TextBlock x:Name="Res30" HorizontalAlignment="Left" Margin="745,868,0,0" Text="0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="22" FontWeight="Normal" Visibility="Visible"/>
+            <TextBlock x:Name="Res31" HorizontalAlignment="Left" Margin="461,1543,0,0" Text="0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="22" FontWeight="Normal" Visibility="Visible"/>
+            <TextBlock x:Name="Res32" HorizontalAlignment="Left" Margin="745,1543,0,0" Text="0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="22" FontWeight="Normal" Visibility="Visible"/>
+            <TextBlock x:Name="Res33" HorizontalAlignment="Left" Margin="461,973,0,0" Text="0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="22" FontWeight="Normal" Visibility="Visible"/>
+            <TextBlock x:Name="Res34" HorizontalAlignment="Left" Margin="745,973,0,0" Text="0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="22" FontWeight="Normal" Visibility="Visible"/>
+            <TextBlock x:Name="Res35" HorizontalAlignment="Left" Margin="461,1579,0,0" Text="0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="22" FontWeight="Normal" Visibility="Visible"/>
+            <TextBlock x:Name="Res36" HorizontalAlignment="Left" Margin="745,1579,0,0" Text="0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="22" FontWeight="Normal" Visibility="Visible"/>
+            <TextBlock x:Name="Res37" HorizontalAlignment="Left" Margin="461,1009,0,0" Text="0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="22" FontWeight="Normal" Visibility="Visible"/>
+            <TextBlock x:Name="Res38" HorizontalAlignment="Left" Margin="745,1009,0,0" Text="0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="22" FontWeight="Normal" Visibility="Visible"/>
+            <TextBlock x:Name="Res39" HorizontalAlignment="Left" Margin="461,1114,0,0" Text="0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="22" FontWeight="Normal" Visibility="Visible"/>
+            <TextBlock x:Name="Res40" HorizontalAlignment="Left" Margin="745,1114,0,0" Text="0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="22" FontWeight="Normal" Visibility="Visible"/>
+            <TextBlock x:Name="Res41" HorizontalAlignment="Left" Margin="461,1150,0,0" Text="0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="22" FontWeight="Normal" Visibility="Visible"/>
+            <TextBlock x:Name="Res42" HorizontalAlignment="Left" Margin="745,1150,0,0" Text="0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="22" FontWeight="Normal" Visibility="Visible"/>
+            <TextBlock x:Name="Res43" HorizontalAlignment="Left" Margin="461,1186,0,0" Text="0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="22" FontWeight="Normal" Visibility="Visible"/>
+            <TextBlock x:Name="Res44" HorizontalAlignment="Left" Margin="745,1186,0,0" Text="0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="22" FontWeight="Normal" Visibility="Visible"/>
+            <TextBlock x:Name="Res45" HorizontalAlignment="Left" Margin="461,1222,0,0" Text="0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="22" FontWeight="Normal" Visibility="Visible"/>
+            <TextBlock x:Name="Res46" HorizontalAlignment="Left" Margin="745,1222,0,0" Text="0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="22" FontWeight="Normal" Visibility="Visible"/>
             <TextBlock x:Name="FirstChampName" HorizontalAlignment="Left" Margin="461,274,0,0" Text="Dummy" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="28" FontWeight="Bold" Visibility="Visible"/>
             <TextBlock x:Name="SecondChampName" HorizontalAlignment="Left" Margin="745,274,0,0" Text="Dummy" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="28" FontWeight="Bold" Visibility="Visible"/>
             <TextBlock x:Name="Version" HorizontalAlignment="Left" Margin="314,63,0,0" Text="App version: " TextWrapping="Wrap" VerticalAlignment="Top" FontSize="20"/>
             <Slider x:Name="LevelSlider" HorizontalAlignment="Left" Margin="950,393,0,0" VerticalAlignment="Top" Width="32" Orientation="Vertical" Height="127" Minimum="1" Maximum="18" ManipulationCompleted="Slider_ManipulationCompleted" ManipulationMode="All"/>
             <TextBlock x:Name="Level" HorizontalAlignment="Left" Margin="941,345,0,0" Text="Level: " TextWrapping="Wrap" VerticalAlignment="Top" FontSize="20"/>
             <Button x:Name="AdvancedBtn" Content="Show advanced stats" Margin="941,548,0,0" VerticalAlignment="Top" FontSize="20" Click="AdvancedBtn_Click"/>
+            <TextBlock x:Name="AdvancedTitle" HorizontalAlignment="Left" Margin="34,1281,0,0" Text="Advanced stats" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="28" FontWeight="Bold"/>
         </Grid>
     </ScrollViewer>
 </Page>

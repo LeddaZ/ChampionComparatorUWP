@@ -172,7 +172,7 @@ namespace ChampionComparatorUWP
             {
                 HP2, HP4, Mana3, Mana5, Attack2, Attack5, Armor2, Magic2, Res3, Res4,
                 Res7, Res8, Res13, Res14, Res17, Res18, Res21, Res22, Res27, Res28,
-                Res31, Res32, Res35, Res36
+                Res31, Res32, Res35, Res36, AdvancedTitle
             };
             return advancedStats;
         }
