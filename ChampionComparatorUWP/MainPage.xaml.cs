@@ -57,12 +57,14 @@ namespace ChampionComparatorUWP
             GetPatch();
         }
 
+        // Set the level and update stats
         private void SetLevel()
         {
             Level.Text = "Level: " + LevelSlider.Value;
             UpdateStats();
         }
 
+        // Method to update stats
         private void UpdateStats()
         {
             //Change HP Stats
@@ -109,6 +111,7 @@ namespace ChampionComparatorUWP
             UpdateColours(Res33, Res34);
         }
 
+        // Called when the user stops sliding the slider
         private void Slider_ManipulationCompleted(object sender, ManipulationCompletedRoutedEventArgs e)
         {
             SetLevel();
@@ -155,6 +158,7 @@ namespace ChampionComparatorUWP
             }
         }
 
+        // Get all textblocks that contain advanced stats
         private List<TextBlock> GetAdvancedStats()
         {
             List<TextBlock> advancedStats = new List<TextBlock>
@@ -166,6 +170,7 @@ namespace ChampionComparatorUWP
             return advancedStats;
         }
 
+        // Called when clicking on the advanced stats button
         private void AdvancedBtn_Click(object sender, RoutedEventArgs e)
         {
             if (AdvancedBtn.Content.ToString().StartsWith("Show"))
