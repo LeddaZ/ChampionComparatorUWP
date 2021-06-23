@@ -223,7 +223,8 @@ namespace ChampionComparatorUWP
             HttpResponseMessage response = await client.GetAsync(new Uri("https://ddragon.leagueoflegends.com/api/versions.json"));
             string jsonString = await response.Content.ReadAsStringAsync();
             latestPatch = jsonString.Split(',')[0].TrimStart('[').TrimStart('"').TrimEnd('"');
-            Patch.Text = "Game Patch: " + latestPatch;
+            string trimmedLatestPatch = latestPatch.Substring(0, (latestPatch.Length - 2));
+            Patch.Text = "Game Patch: " + trimmedLatestPatch;
         }
 
         // Gets stats and displays champ names, images and stats
