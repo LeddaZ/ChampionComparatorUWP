@@ -55,6 +55,8 @@ namespace ChampionComparatorUWP
             {
                 t.Visibility = Visibility.Collapsed;
             }
+            // Hide patch notes link
+            PatchNotes.Visibility = Visibility.Collapsed;
             // Disable advanced stats button
             AdvancedBtn.IsEnabled = false;
             // Display app version
@@ -224,7 +226,12 @@ namespace ChampionComparatorUWP
             string jsonString = await response.Content.ReadAsStringAsync();
             latestPatch = jsonString.Split(',')[0].TrimStart('[').TrimStart('"').TrimEnd('"');
             string trimmedLatestPatch = latestPatch.Substring(0, (latestPatch.Length - 2));
+            string majorVer = trimmedLatestPatch.Substring(0, 2);
+            string minorVer = trimmedLatestPatch.Substring(3);
             Patch.Text = "Game Patch: " + trimmedLatestPatch;
+            Uri patchLink = new Uri($"https://na.leagueoflegends.com/en-us/news/game-updates/patch-{majorVer}-{minorVer}-notes/");
+            PNHyperlink.NavigateUri = patchLink;
+            PatchNotes.Visibility = Visibility.Visible;
         }
 
         // Gets stats and displays champ names, images and stats
