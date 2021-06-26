@@ -157,8 +157,8 @@ namespace ChampionComparatorUWP
             }
             else if (stat1 == stat2)
             {
-                tb1.Foreground = new SolidColorBrush(Colors.Blue);
-                tb2.Foreground = new SolidColorBrush(Colors.Blue);
+                tb1.Foreground = new SolidColorBrush(ColorHelper.FromArgb(255, 15, 82, 186));
+                tb2.Foreground = new SolidColorBrush(ColorHelper.FromArgb(255, 15, 82, 186));
             }
             else
             {
@@ -322,8 +322,8 @@ namespace ChampionComparatorUWP
                 }
                 else
                 {
-                    Res11.Foreground = new SolidColorBrush(ColorHelper.FromArgb(255, 167, 146, 221));
-                    Res12.Foreground = new SolidColorBrush(ColorHelper.FromArgb(255, 167, 146, 221));
+                    Res11.Foreground = new SolidColorBrush(ColorHelper.FromArgb(255, 119, 123, 126));
+                    Res12.Foreground = new SolidColorBrush(ColorHelper.FromArgb(255, 119, 123, 126));
                 }
 
                 UpdateColours(champion1.stats.attackdamage, champion2.stats.attackdamage, Res19, Res20);
