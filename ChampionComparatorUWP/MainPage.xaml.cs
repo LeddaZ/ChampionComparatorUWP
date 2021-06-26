@@ -79,7 +79,7 @@ namespace ChampionComparatorUWP
             //Change HP Stats
             Res1.Text = Math.Round(double.Parse(stats[0], CultureInfo.InvariantCulture) + (double.Parse(stats[2]) * (LevelSlider.Value - 1) * (0.7025 + (0.0175 * (LevelSlider.Value - 1)))), 2, MidpointRounding.ToEven).ToString();
             Res2.Text = Math.Round(double.Parse(stats[1], CultureInfo.InvariantCulture) + (double.Parse(stats[3]) * (LevelSlider.Value - 1) * (0.7025 + (0.0175 * (LevelSlider.Value - 1)))), 2, MidpointRounding.ToEven).ToString();
-            UpdateColours(Res1, Res2);
+            UpdateColors(Res1, Res2);
 
             //Change HP Regen Stats
             Res5.Text = Math.Round(double.Parse(stats[4], CultureInfo.InvariantCulture) + (double.Parse(stats[6]) / 5 * (LevelSlider.Value - 1) * (0.7025 + (0.0175 * (LevelSlider.Value - 1)))), 1, MidpointRounding.ToEven).ToString();
@@ -88,7 +88,7 @@ namespace ChampionComparatorUWP
             //Change Mana Stats
             Res11.Text = Math.Round(double.Parse(stats[10], CultureInfo.InvariantCulture) + (double.Parse(stats[12]) * (LevelSlider.Value - 1) * (0.7025 + (0.0175 * (LevelSlider.Value - 1)))), 2, MidpointRounding.ToEven).ToString();
             Res12.Text = Math.Round(double.Parse(stats[11], CultureInfo.InvariantCulture) + (double.Parse(stats[13]) * (LevelSlider.Value - 1) * (0.7025 + (0.0175 * (LevelSlider.Value - 1)))), 2, MidpointRounding.ToEven).ToString();
-            UpdateColours(Res11, Res12);
+            UpdateColors(Res11, Res12);
 
             //Change Mana Regen Stats
             Res15.Text = Math.Round(double.Parse(stats[14], CultureInfo.InvariantCulture) + (double.Parse(stats[16]) / 5 * (LevelSlider.Value - 1) * (0.7025 + (0.0175 * (LevelSlider.Value - 1)))), 1, MidpointRounding.ToEven).ToString();
@@ -98,7 +98,7 @@ namespace ChampionComparatorUWP
             Res19.Text = Math.Round(double.Parse(stats[18], CultureInfo.InvariantCulture) + (double.Parse(stats[20]) * (LevelSlider.Value - 1) * (0.7025 + (0.0175 * (LevelSlider.Value - 1)))), 2, MidpointRounding.ToEven).ToString();
             Res20.Text = Math.Round(double.Parse(stats[19], CultureInfo.InvariantCulture) + (double.Parse(stats[21]) * (LevelSlider.Value - 1) * (0.7025 + (0.0175 * (LevelSlider.Value - 1)))), 2, MidpointRounding.ToEven).ToString();
 
-            UpdateColours(Res19, Res20);
+            UpdateColors(Res19, Res20);
 
             //Change Attack Stats
             string result1 = Math.Round(0 + (Convert.ToDouble(stats[26].TrimEnd('%')) * (LevelSlider.Value - 1) * (0.7025 + (0.0175 * (LevelSlider.Value - 1)))), 3, MidpointRounding.ToEven).ToString();
@@ -106,18 +106,18 @@ namespace ChampionComparatorUWP
             Res25.Text = Math.Round(double.Parse(stats[24], CultureInfo.InvariantCulture) * (1 + (double.Parse(result1) / 100)), 3, MidpointRounding.ToEven).ToString();
             Res26.Text = Math.Round(double.Parse(stats[25], CultureInfo.InvariantCulture) * (1 + (double.Parse(result2) / 100)), 3, MidpointRounding.ToEven).ToString();
 
-            UpdateColours(Res25, Res26);
+            UpdateColors(Res25, Res26);
 
             //Change Armor Stats
             Res29.Text = Math.Round(double.Parse(stats[28], CultureInfo.InvariantCulture) + (double.Parse(stats[30]) * (LevelSlider.Value - 1) * (0.7025 + (0.0175 * (LevelSlider.Value - 1)))), 2, MidpointRounding.ToEven).ToString();
             Res30.Text = Math.Round(double.Parse(stats[29], CultureInfo.InvariantCulture) + (double.Parse(stats[31]) * (LevelSlider.Value - 1) * (0.7025 + (0.0175 * (LevelSlider.Value - 1)))), 2, MidpointRounding.ToEven).ToString();
 
-            UpdateColours(Res29, Res30);
+            UpdateColors(Res29, Res30);
 
             //Change Magic Resistance Stats
             Res33.Text = Math.Round(double.Parse(stats[32], CultureInfo.InvariantCulture) + (double.Parse(stats[34]) * (LevelSlider.Value - 1) * (0.7025 + (0.0175 * (LevelSlider.Value - 1)))), 2, MidpointRounding.ToEven).ToString();
             Res34.Text = Math.Round(double.Parse(stats[33], CultureInfo.InvariantCulture) + (double.Parse(stats[35]) * (LevelSlider.Value - 1) * (0.7025 + (0.0175 * (LevelSlider.Value - 1)))), 2, MidpointRounding.ToEven).ToString();
-            UpdateColours(Res33, Res34);
+            UpdateColors(Res33, Res34);
         }
 
         // Called when the user stops sliding the slider
@@ -126,8 +126,8 @@ namespace ChampionComparatorUWP
             SetLevel();
         }
 
-        // Updates stats colours
-        private void UpdateColours(TextBlock tb1, TextBlock tb2)
+        // Updates stats colors
+        private void UpdateColors(TextBlock tb1, TextBlock tb2)
         {
             if (Convert.ToDouble(tb1.Text) > Convert.ToDouble(tb2.Text))
             {
@@ -146,9 +146,9 @@ namespace ChampionComparatorUWP
             }
         }
 
-        /* Updates stats colours directly with stats, useful for setting
-         * colours for the first time */
-        private void UpdateColours(double stat1, double stat2, TextBlock tb1, TextBlock tb2)
+        /* Updates stats colors directly with stats, useful for setting
+         * colors for the first time */
+        private void UpdateColors(double stat1, double stat2, TextBlock tb1, TextBlock tb2)
         {
             if (stat1 > stat2)
             {
@@ -314,11 +314,11 @@ namespace ChampionComparatorUWP
 
                 /* Set the colors of the most important stats. Netu died inside to do this,
                  * but Ledda made it more simple */
-                UpdateColours(champion1.stats.hp, champion2.stats.hp, Res1, Res2);
+                UpdateColors(champion1.stats.hp, champion2.stats.hp, Res1, Res2);
 
                 if (champion1.partype == champion2.partype)
                 {
-                    UpdateColours(champion1.stats.mp, champion2.stats.mp, Res11, Res12);
+                    UpdateColors(champion1.stats.mp, champion2.stats.mp, Res11, Res12);
                 }
                 else
                 {
@@ -326,17 +326,17 @@ namespace ChampionComparatorUWP
                     Res12.Foreground = new SolidColorBrush(ColorHelper.FromArgb(255, 119, 123, 126));
                 }
 
-                UpdateColours(champion1.stats.attackdamage, champion2.stats.attackdamage, Res19, Res20);
+                UpdateColors(champion1.stats.attackdamage, champion2.stats.attackdamage, Res19, Res20);
 
-                UpdateColours(champion1.stats.attackrange, champion2.stats.attackrange, Res23, Res24);
+                UpdateColors(champion1.stats.attackrange, champion2.stats.attackrange, Res23, Res24);
 
-                UpdateColours(champion1.stats.attackspeed, champion2.stats.attackspeed, Res25, Res26);
+                UpdateColors(champion1.stats.attackspeed, champion2.stats.attackspeed, Res25, Res26);
 
-                UpdateColours(champion1.stats.armor, champion2.stats.armor, Res29, Res30);
+                UpdateColors(champion1.stats.armor, champion2.stats.armor, Res29, Res30);
 
-                UpdateColours(champion1.stats.spellblock, champion2.stats.spellblock, Res33, Res34);
+                UpdateColors(champion1.stats.spellblock, champion2.stats.spellblock, Res33, Res34);
 
-                UpdateColours(champion1.stats.movespeed, champion2.stats.movespeed, Res37, Res38);
+                UpdateColors(champion1.stats.movespeed, champion2.stats.movespeed, Res37, Res38);
 
                 // Create an array to store stats labels and champ names
                 TextBlock[] blocks = new TextBlock[46];
