@@ -93,35 +93,6 @@ namespace ChampionComparatorUWP
             sender.Text = args.SelectedItem.ToString();
         }
 
-        public MainPage()
-        {
-            InitializeComponent();
-            // Set grid height to hide extra space
-            MainGrid.Height = 1280;
-            // Hide stats and champ names
-            foreach (TextBlock textBlock in GetAllTextBlocks())
-            {
-                if (textBlock.Name.StartsWith("Res") || textBlock.Name.EndsWith("Name"))
-                {
-                    textBlock.Visibility = Visibility.Collapsed;
-                }
-            }
-            // Hide advanced stats
-            foreach (TextBlock t in GetAdvancedStats())
-            {
-                t.Visibility = Visibility.Collapsed;
-            }
-            // Hide patch notes link
-            PatchNotes.Visibility = Visibility.Collapsed;
-            // Disable advanced stats button
-            AdvancedBtn.IsEnabled = false;
-            // Display app version
-            Version.Text += GetVersion();
-            Level.Text = "Level: 1";
-            LevelSlider.Value = 1;
-            GetPatch();
-        }
-
         // Set the level and update stats
         private void SetLevel()
         {
@@ -235,6 +206,59 @@ namespace ChampionComparatorUWP
             return advancedStats;
         }
 
+        public MainPage()
+        {
+            InitializeComponent();
+            // Set grid height to hide extra space
+            MainGrid.Height = 1280;
+            // Hide stats and champ names
+            foreach (TextBlock textBlock in GetAllTextBlocks())
+            {
+                if (textBlock.Name.StartsWith("Res") || textBlock.Name.EndsWith("Name"))
+                {
+                    textBlock.Visibility = Visibility.Collapsed;
+                }
+            }
+            // Hide advanced stats
+            foreach (TextBlock t in GetAdvancedStats())
+            {
+                t.Visibility = Visibility.Collapsed;
+            }
+            // Hide patch notes link
+            PatchNotes.Visibility = Visibility.Collapsed;
+            // Disable advanced stats button
+            AdvancedBtn.IsEnabled = false;
+            // Display app version
+            Version.Text += GetVersion();
+            Level.Text = "Level: 1";
+            LevelSlider.Value = 1;
+            GetPatch();
+        }
+
+        // Gets latest patch number and displays it
+        public async void GetPatch()
+        {
+            HttpResponseMessage response = await client.GetAsync(new Uri("https://ddragon.leagueoflegends.com/api/versions.json"));
+            string jsonString = await response.Content.ReadAsStringAsync();
+            latestPatch = jsonString.Split(',')[0].TrimStart('[').TrimStart('"').TrimEnd('"');
+            string trimmedLatestPatch = latestPatch.Substring(0, (latestPatch.Length - 2));
+            string majorVer = trimmedLatestPatch.Substring(0, 2);
+            string minorVer = trimmedLatestPatch.Substring(3);
+            Patch.Text = "Game Patch: " + trimmedLatestPatch;
+            Uri patchLink = new Uri($"https://na.leagueoflegends.com/en-us/news/game-updates/patch-{majorVer}-{minorVer}-notes/");
+            PNHyperlink.NavigateUri = patchLink;
+            PatchNotes.Visibility = Visibility.Visible;
+        }
+
+        // Returns app version
+        public static string GetVersion()
+        {
+            Package package = Package.Current;
+            PackageId packageId = package.Id;
+            PackageVersion version = packageId.Version;
+            return string.Format("{0}.{1}.{2}", version.Major, version.Minor, version.Build);
+        }
+
         // Called when clicking on the advanced stats button
         private void AdvancedBtn_Click(object sender, RoutedEventArgs e)
         {
@@ -266,30 +290,6 @@ namespace ChampionComparatorUWP
             champ1 = ch1.ToLower().Contains("mundo") ? "DrMundo" : (ch1.ToLower().Contains("sol") ? "AurelionSol" : (ch1.ToLower().Contains("jarvan") ? "JarvanIV" : ((!ch1.ToLower().Equals("kai'sa") && !ch1.ToLower().Equals("kai sa")) ? (ch1.ToLower().Contains("kha") ? "Khazix" : (ch1.ToLower().Contains("kog") ? "KogMaw" : ((!ch1.ToLower().Equals("leesin") && !ch1.ToLower().Equals("lee sin")) ? (ch1.ToLower().Contains("master") ? "MasterYi" : (ch1.ToLower().Contains("miss") ? "MissFortune" : (ch1.ToLower().Contains("wukong") ? "MonkeyKing" : ((!ch1.ToLower().Equals("rek'sai") && !ch1.ToLower().Equals("reksai") && !ch1.ToLower().Equals("rek sai")) ? (ch1.ToLower().Contains("tahm") ? "TahmKench" : (ch1.ToLower().Contains("twisted") ? "TwistedFate" : ((ch1.ToLower().Equals("vel'koz") || ch1.ToLower().Equals("vel koz")) ? "Velkoz" : (ch1.ToLower().Contains("xin") ? "XinZhao" : (ch1.ToLower().Contains("pasquetto") ? "Shaco" : ((!ch1.Contains(" ")) ? (char.ToUpper(ch1[0]) + ch1.Substring(1).ToLower()) : (char.ToUpper(ch1[0]) + ch1.Substring(1).ToLower().TrimEnd(' ')))))))) : "RekSai")))) : "LeeSin"))) : "Kaisa")));
             champ2 = ch2.ToLower().Contains("mundo") ? "DrMundo" : (ch2.ToLower().Contains("sol") ? "AurelionSol" : (ch2.ToLower().Contains("jarvan") ? "JarvanIV" : ((!ch2.ToLower().Equals("kai'sa") && !ch2.ToLower().Equals("kai sa")) ? (ch2.ToLower().Contains("kha") ? "Khazix" : (ch2.ToLower().Contains("kog") ? "KogMaw" : ((!ch2.ToLower().Equals("leesin") && !ch2.ToLower().Equals("lee sin")) ? (ch2.ToLower().Contains("master") ? "MasterYi" : (ch2.ToLower().Contains("miss") ? "MissFortune" : (ch2.ToLower().Contains("wukong") ? "MonkeyKing" : ((!ch2.ToLower().Equals("rek'sai") && !ch2.ToLower().Equals("reksai") && !ch2.ToLower().Equals("rek sai")) ? (ch2.ToLower().Contains("tahm") ? "TahmKench" : (ch2.ToLower().Contains("twisted") ? "TwistedFate" : ((ch2.ToLower().Equals("vel'koz") || ch2.ToLower().Equals("vel koz")) ? "Velkoz" : (ch2.ToLower().Contains("xin") ? "XinZhao" : (ch2.ToLower().Contains("pasquetto") ? "Shaco" : ((!ch2.Contains(" ")) ? (char.ToUpper(ch2[0]) + ch2.Substring(1).ToLower()) : (char.ToUpper(ch2[0]) + ch2.Substring(1).ToLower().TrimEnd(' ')))))))) : "RekSai")))) : "LeeSin"))) : "Kaisa")));
             DisplayStats();
-        }
-
-        // Returns app version
-        public static string GetVersion()
-        {
-            Package package = Package.Current;
-            PackageId packageId = package.Id;
-            PackageVersion version = packageId.Version;
-            return string.Format("{0}.{1}.{2}", version.Major, version.Minor, version.Build);
-        }
-
-        // Gets latest patch number and displays it
-        public async void GetPatch()
-        {
-            HttpResponseMessage response = await client.GetAsync(new Uri("https://ddragon.leagueoflegends.com/api/versions.json"));
-            string jsonString = await response.Content.ReadAsStringAsync();
-            latestPatch = jsonString.Split(',')[0].TrimStart('[').TrimStart('"').TrimEnd('"');
-            string trimmedLatestPatch = latestPatch.Substring(0, (latestPatch.Length - 2));
-            string majorVer = trimmedLatestPatch.Substring(0, 2);
-            string minorVer = trimmedLatestPatch.Substring(3);
-            Patch.Text = "Game Patch: " + trimmedLatestPatch;
-            Uri patchLink = new Uri($"https://na.leagueoflegends.com/en-us/news/game-updates/patch-{majorVer}-{minorVer}-notes/");
-            PNHyperlink.NavigateUri = patchLink;
-            PatchNotes.Visibility = Visibility.Visible;
         }
 
         // Gets stats and displays champ names, images and stats
@@ -441,7 +441,7 @@ namespace ChampionComparatorUWP
                     SecondChampImage.Source = new BitmapImage(new Uri($@"http://ddragon.leagueoflegends.com/cdn/{latestPatch}/img/champion/{champ2}.png"));
                 }
 
-                // Clean textboxes
+                // Clean AutoSuggestBoxes
                 FirstChampBox.Text = "";
                 SecondChampBox.Text = "";
 
