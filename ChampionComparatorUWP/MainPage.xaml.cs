@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Globalization;
+using System.IO;
 using System.Linq;
 using System.Net.Http;
 using Windows.ApplicationModel;
@@ -421,8 +422,24 @@ namespace ChampionComparatorUWP
                 }
                 FirstChampName.Text = champion1.name;
                 SecondChampName.Text = champion2.name;
-                FirstChampImage.Source = new BitmapImage(new Uri($@"ms-appx:///Assets/Champions/{ch1}.png"));
-                SecondChampImage.Source = new BitmapImage(new Uri($@"ms-appx:///Assets/Champions/{ch2}.png"));
+                Uri champion1Path = new Uri($@"ms-appx:///Assets/Champions/{ch1}.png");
+                Uri champion2Path = new Uri($@"ms-appx:///Assets/Champions/{ch2}.png");
+                if (File.Exists(champion1Path.ToString()))
+                {
+                    FirstChampImage.Source = new BitmapImage(champion1Path);
+                }
+                else
+                {
+                    FirstChampImage.Source = new BitmapImage(new Uri($@"http://ddragon.leagueoflegends.com/cdn/{latestPatch}/img/champion/{champ1}.png"));
+                }
+                if (File.Exists(champion2Path.ToString()))
+                {
+                    SecondChampImage.Source = new BitmapImage(champion2Path);
+                }
+                else
+                {
+                    SecondChampImage.Source = new BitmapImage(new Uri($@"http://ddragon.leagueoflegends.com/cdn/{latestPatch}/img/champion/{champ2}.png"));
+                }
 
                 // Clean textboxes
                 FirstChampBox.Text = "";
