@@ -95,6 +95,8 @@ namespace ChampionComparatorUWP
         public MainPage()
         {
             InitializeComponent();
+            // Set grid height to hide extra space
+            MainGrid.Height = 1280;
             // Hide stats and champ names
             foreach (TextBlock textBlock in GetAllTextBlocks())
             {
@@ -242,6 +244,7 @@ namespace ChampionComparatorUWP
                     t.Visibility = Visibility.Visible;
                 }
                 AdvancedBtn.Content = "Hide advanced stats";
+                MainGrid.Height = 1620;
             }
             else
             {
@@ -250,6 +253,7 @@ namespace ChampionComparatorUWP
                     t.Visibility = Visibility.Collapsed;
                 }
                 AdvancedBtn.Content = "Show advanced stats";
+                MainGrid.Height = 1280;
             }
         }
 
