@@ -41,7 +41,7 @@
             <TextBlock x:Name="MagicTitle" HorizontalAlignment="Left" Margin="34,927,0,0" Text="Magic stats" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="28" FontWeight="Bold"/>
             <TextBlock x:Name="Magic1" HorizontalAlignment="Left" Margin="34,973,0,0" Text="Magic resistance" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="22" FontWeight="Normal"/>
             <TextBlock x:Name="Magic2" HorizontalAlignment="Left" Margin="34,1579,0,0" Text="Magic resistance per level" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="22" FontWeight="Normal"/>
-            <TextBlock x:Name="Movement" HorizontalAlignment="Left" Margin="34,1009,0,0" Text="Movement speed" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="22" FontWeight="Normal" Tapped="TextBlock_Clicked"/>
+            <TextBlock x:Name="Movement" HorizontalAlignment="Left" Margin="34,1022,0,0" Text="Movement speed" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="22" FontWeight="Bold" Tapped="TextBlock_Clicked"/>
             <TextBlock x:Name="CooldownTitle" HorizontalAlignment="Left" Margin="34,1068,0,0" Text="Cooldown stats" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="28" FontWeight="Bold"/>
             <TextBlock x:Name="Cooldown1" HorizontalAlignment="Left" Margin="34,1114,0,0" Text="Q cooldown" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="22" FontWeight="Normal"/>
             <TextBlock x:Name="Cooldown2" HorizontalAlignment="Left" Margin="34,1150,0,0" Text="W cooldown" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="22" FontWeight="Normal"/>
@@ -83,8 +83,8 @@
             <TextBlock x:Name="Res34" HorizontalAlignment="Left" Margin="745,973,0,0" Text="0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="22" FontWeight="Normal" Visibility="Visible"/>
             <TextBlock x:Name="Res35" HorizontalAlignment="Left" Margin="461,1579,0,0" Text="0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="22" FontWeight="Normal" Visibility="Visible"/>
             <TextBlock x:Name="Res36" HorizontalAlignment="Left" Margin="745,1579,0,0" Text="0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="22" FontWeight="Normal" Visibility="Visible"/>
-            <TextBlock x:Name="Res37" HorizontalAlignment="Left" Margin="461,1009,0,0" Text="0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="22" FontWeight="Normal" Visibility="Visible"/>
-            <TextBlock x:Name="Res38" HorizontalAlignment="Left" Margin="745,1009,0,0" Text="0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="22" FontWeight="Normal" Visibility="Visible"/>
+            <TextBlock x:Name="Res37" HorizontalAlignment="Left" Margin="461,1022,0,0" Text="0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="22" FontWeight="Normal" Visibility="Visible"/>
+            <TextBlock x:Name="Res38" HorizontalAlignment="Left" Margin="745,1022,0,0" Text="0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="22" FontWeight="Normal" Visibility="Visible"/>
             <TextBlock x:Name="Res39" HorizontalAlignment="Left" Margin="461,1114,0,0" Text="0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="22" FontWeight="Normal" Visibility="Visible"/>
             <TextBlock x:Name="Res40" HorizontalAlignment="Left" Margin="745,1114,0,0" Text="0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="22" FontWeight="Normal" Visibility="Visible"/>
             <TextBlock x:Name="Res41" HorizontalAlignment="Left" Margin="461,1150,0,0" Text="0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="22" FontWeight="Normal" Visibility="Visible"/>
