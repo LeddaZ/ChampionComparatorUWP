@@ -46,7 +46,7 @@ namespace ChampionComparatorUWP
             "Vladimir", "Volibear", "Warwick", "Xayah", "Xerath", "XinZhao", "Yasuo", "Yone", "Yorick", "Yuumi",
             "Zac", "Zed", "Ziggs", "Zilean", "Zoe", "Zyra"
         };
-        
+
 
         // Gets all TextBlock items in a Grid
         private List<TextBlock> GetAllTextBlocks()
@@ -61,6 +61,8 @@ namespace ChampionComparatorUWP
             }
             return allBlocks;
         }
+
+        // Called when the user types something
         private void AutoSuggestBox_TextChanged(AutoSuggestBox sender, AutoSuggestBoxTextChangedEventArgs args)
         {
             List<string> suitableItems = new List<string>();
@@ -84,14 +86,10 @@ namespace ChampionComparatorUWP
 
         }
 
-        private void FirstBox_SuggestionChosen(AutoSuggestBox sender, AutoSuggestBoxSuggestionChosenEventArgs args)
+        // Called when the user clicks on a suggestion
+        private void AutoSuggestBox_SuggestionChosen(AutoSuggestBox sender, AutoSuggestBoxSuggestionChosenEventArgs args)
         {
-            FirstChampBox.Text = args.SelectedItem.ToString();
-        }
-
-        private void SecondBox_SuggestionChosen(AutoSuggestBox sender, AutoSuggestBoxSuggestionChosenEventArgs args)
-        {
-            SecondChampBox.Text = args.SelectedItem.ToString();
+            sender.Text = args.SelectedItem.ToString();
         }
 
         public MainPage()

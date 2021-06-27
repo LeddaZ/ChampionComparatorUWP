@@ -101,8 +101,8 @@
             <Button x:Name="AdvancedBtn" Content="Show advanced stats" Margin="941,548,0,0" VerticalAlignment="Top" FontSize="20" Click="AdvancedBtn_Click"/>
             <TextBlock x:Name="AdvancedTitle" HorizontalAlignment="Left" Margin="34,1281,0,0" Text="Advanced stats" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="28" FontWeight="Bold"/>
             <TextBlock x:Name="PatchNotes" HorizontalAlignment="Left" Margin="314,63,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="20"><Hyperlink x:Name="PNHyperlink" NavigateUri="http://www.example.com/"><Run Text="Patch notes"/></Hyperlink></TextBlock>
-            <AutoSuggestBox x:Name="FirstChampBox" Width="194" TextChanged="AutoSuggestBox_TextChanged" SuggestionChosen="FirstBox_SuggestionChosen" HorizontalAlignment="Left" Margin="32,76,0,0" FontSize="16"/>
-            <AutoSuggestBox x:Name="SecondChampBox" Width="194" TextChanged="AutoSuggestBox_TextChanged" SuggestionChosen="SecondBox_SuggestionChosen" HorizontalAlignment="Left" Margin="32,184,0,0" FontSize="16"/>
+            <AutoSuggestBox x:Name="FirstChampBox" Width="194" TextChanged="AutoSuggestBox_TextChanged" SuggestionChosen="AutoSuggestBox_SuggestionChosen" HorizontalAlignment="Left" Margin="32,76,0,0" FontSize="16"/>
+            <AutoSuggestBox x:Name="SecondChampBox" Width="194" TextChanged="AutoSuggestBox_TextChanged" SuggestionChosen="AutoSuggestBox_SuggestionChosen" HorizontalAlignment="Left" Margin="32,184,0,0" FontSize="16"/>
         </Grid>
     </ScrollViewer>
 </Page>
