@@ -58,7 +58,7 @@ namespace ChampionComparatorUWP
             ulong build = (version & 0x00000000FFFF0000L) >> 16;
             winBuild = build.ToString();
             // Version
-            winVer = build >= 22000 ? "11" : "10";
+            winVer = build >= 21996 ? "11" : "10";
         }
 
         // Gets all TextBlock items in a Grid
