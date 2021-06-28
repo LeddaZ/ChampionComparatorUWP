@@ -14,13 +14,8 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Media.Imaging;
 
-// The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
-
 namespace ChampionComparatorUWP
 {
-    /// <summary>
-    /// An empty page that can be used on its own or navigated to within a Frame.
-    /// </summary>
     public sealed partial class MainPage : Page
     {
         public static string latestPatch;
@@ -218,6 +213,7 @@ namespace ChampionComparatorUWP
             return advancedStats;
         }
 
+        // Start of the big mess
         public MainPage()
         {
             InitializeComponent();
@@ -310,6 +306,7 @@ namespace ChampionComparatorUWP
             }
         }
 
+        // Called when the Confirm button is clicked
         private void ConfirmBtn_Click(object sender, RoutedEventArgs e)
         {
             // Store champion names to display them later
@@ -334,7 +331,7 @@ namespace ChampionComparatorUWP
             Champion2.Root requestChampion2 = JsonConvert.DeserializeObject<Champion2.Root>(json2);
             List<Champion2.Spell> spells2 = requestChampion2?.data[champ2].spells;
 
-            if (requestChampion2 != null && requestChampion1 != null && requestChampion1.data.TryGetValue(champ1, out var champion1) && requestChampion2.data.TryGetValue(champ2, out var champion2))
+            if (requestChampion2 != null && requestChampion1 != null && requestChampion1.data.TryGetValue(champ1, out Champion1.Champion champion1) && requestChampion2.data.TryGetValue(champ2, out Champion2.Champion champion2))
             {
                 // Q cooldown
                 Champion1.Spell spell = spells[0];
@@ -452,22 +449,12 @@ namespace ChampionComparatorUWP
                 SecondChampName.Text = champion2.name;
                 Uri champion1Path = new Uri($@"ms-appx:///Assets/Champions/{ch1}.png");
                 Uri champion2Path = new Uri($@"ms-appx:///Assets/Champions/{ch2}.png");
-                if (File.Exists(champion1Path.ToString()))
-                {
-                    FirstChampImage.Source = new BitmapImage(champion1Path);
-                }
-                else
-                {
-                    FirstChampImage.Source = new BitmapImage(new Uri($@"http://ddragon.leagueoflegends.com/cdn/{latestPatch}/img/champion/{champ1}.png"));
-                }
-                if (File.Exists(champion2Path.ToString()))
-                {
-                    SecondChampImage.Source = new BitmapImage(champion2Path);
-                }
-                else
-                {
-                    SecondChampImage.Source = new BitmapImage(new Uri($@"http://ddragon.leagueoflegends.com/cdn/{latestPatch}/img/champion/{champ2}.png"));
-                }
+                FirstChampImage.Source = File.Exists(champion1Path.ToString())
+                    ? new BitmapImage(champion1Path)
+                    : new BitmapImage(new Uri($@"http://ddragon.leagueoflegends.com/cdn/{latestPatch}/img/champion/{champ1}.png"));
+                SecondChampImage.Source = File.Exists(champion2Path.ToString())
+                    ? new BitmapImage(champion2Path)
+                    : new BitmapImage(new Uri($@"http://ddragon.leagueoflegends.com/cdn/{latestPatch}/img/champion/{champ2}.png"));
 
                 // Clean AutoSuggestBoxes
                 FirstChampBox.Text = "";
@@ -487,8 +474,7 @@ namespace ChampionComparatorUWP
                 Content = $"UWP app to compare two League of Legends champions. Created from ChampionComparatorGUI, which is based on ChampionComparator, the console-only version of CCGUI (not public).\nRunning on Windows {winVer} build {winBuild}\nHow do I know? Magic.",
                 CloseButtonText = "Thank you LeddaZ, very cool!"
             };
-
-            ContentDialogResult result = await aboutDialog.ShowAsync();
+            _ = await aboutDialog.ShowAsync();
         }
 
         // Called when the About button is clicked
@@ -497,8 +483,8 @@ namespace ChampionComparatorUWP
             DisplayAboutDialog();
         }
 
-            // Easter eggs
-            private async void TextBlock_Clicked(object sender, TappedRoutedEventArgs e)
+        // Easter eggs
+        private async void TextBlock_Clicked(object sender, TappedRoutedEventArgs e)
         {
             // The URI to launch
             Uri uri = new Uri(@"https://raw.githubusercontent.com/LeddaZ/LeddaZ.github.io/master/files/heh.gif");
