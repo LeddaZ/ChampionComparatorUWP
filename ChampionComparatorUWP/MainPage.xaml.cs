@@ -24,7 +24,7 @@ namespace ChampionComparatorUWP
     public sealed partial class MainPage : Page
     {
         public static string latestPatch;
-        private string champ1, champ2, ch1, ch2;
+        private string champ1, champ2, ch1, ch2, winVer, winBuild;
         private readonly string[] stats = new string[46];
         private readonly HttpClient client = new HttpClient();
 
@@ -49,6 +49,17 @@ namespace ChampionComparatorUWP
             "Zac", "Zed", "Ziggs", "Zilean", "Zoe", "Zyra"
         };
 
+        // Get Windows version and build
+        private void GetWinVer()
+        {
+            // Build
+            string deviceFamilyVersion = AnalyticsInfo.VersionInfo.DeviceFamilyVersion;
+            ulong version = ulong.Parse(deviceFamilyVersion);
+            ulong build = (version & 0x00000000FFFF0000L) >> 16;
+            winBuild = build.ToString();
+            // Version
+            winVer = build >= 22000 ? "11" : "10";
+        }
 
         // Gets all TextBlock items in a Grid
         private List<TextBlock> GetAllTextBlocks()
@@ -210,11 +221,9 @@ namespace ChampionComparatorUWP
         public MainPage()
         {
             InitializeComponent();
+            GetWinVer();
             // Set font to Segoe UI Variable on Windows 11
-            string deviceFamilyVersion = AnalyticsInfo.VersionInfo.DeviceFamilyVersion;
-            ulong version = ulong.Parse(deviceFamilyVersion);
-            ulong build = (version & 0x00000000FFFF0000L) >> 16;
-            if (build >= 22000)
+            if (winVer.Equals("11"))
             {
                 foreach (UIElement child in MainGrid.Children)
                 {
@@ -469,8 +478,27 @@ namespace ChampionComparatorUWP
             }
         }
 
-        // Easter eggs
-        private async void TextBlock_Clicked(object sender, TappedRoutedEventArgs e)
+        // About dialog
+        private async void DisplayAboutDialog()
+        {
+            ContentDialog aboutDialog = new ContentDialog
+            {
+                Title = "About this app",
+                Content = $"UWP app to compare two League of Legends champions. Created from ChampionComparatorGUI, which is based on ChampionComparator, the console-only version of CCGUI (not public).\nRunning on Windows {winVer} build {winBuild}\nHow do I know? Magic.",
+                CloseButtonText = "Thank you LeddaZ, very cool!"
+            };
+
+            ContentDialogResult result = await aboutDialog.ShowAsync();
+        }
+
+        // Called when the About button is clicked
+        private void AboutBtn_Click(object sender, RoutedEventArgs e)
+        {
+            DisplayAboutDialog();
+        }
+
+            // Easter eggs
+            private async void TextBlock_Clicked(object sender, TappedRoutedEventArgs e)
         {
             // The URI to launch
             Uri uri = new Uri(@"https://raw.githubusercontent.com/LeddaZ/LeddaZ.github.io/master/files/heh.gif");
