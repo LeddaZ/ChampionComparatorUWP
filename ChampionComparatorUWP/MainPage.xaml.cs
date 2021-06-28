@@ -210,7 +210,7 @@ namespace ChampionComparatorUWP
         public MainPage()
         {
             InitializeComponent();
-            // Set font to Segoe UI Variable in Windows 11
+            // Set font to Segoe UI Variable on Windows 11
             string deviceFamilyVersion = AnalyticsInfo.VersionInfo.DeviceFamilyVersion;
             ulong version = ulong.Parse(deviceFamilyVersion);
             ulong build = (version & 0x00000000FFFF0000L) >> 16;

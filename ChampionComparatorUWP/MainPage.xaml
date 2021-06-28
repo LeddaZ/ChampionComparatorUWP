@@ -93,7 +93,7 @@
             <TextBlock x:Name="Res44" HorizontalAlignment="Left" Margin="745,1186,0,0" Text="0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="22" FontWeight="Normal" Visibility="Visible"/>
             <TextBlock x:Name="Res45" HorizontalAlignment="Left" Margin="461,1222,0,0" Text="0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="22" FontWeight="Normal" Visibility="Visible"/>
             <TextBlock x:Name="Res46" HorizontalAlignment="Left" Margin="745,1222,0,0" Text="0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="22" FontWeight="Normal" Visibility="Visible"/>
-            <TextBlock x:Name="FirstChampName" HorizontalAlignment="Left" Margin="461,274,0,0" Text="Dummy" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="28" FontWeight="Bold" Visibility="Visible" FontFamily="Segoe UI Variable Display"/>
+            <TextBlock x:Name="FirstChampName" HorizontalAlignment="Left" Margin="461,274,0,0" Text="Dummy" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="28" FontWeight="Bold" Visibility="Visible"/>
             <TextBlock x:Name="SecondChampName" HorizontalAlignment="Left" Margin="745,274,0,0" Text="Dummy" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="28" FontWeight="Bold" Visibility="Visible"/>
             <TextBlock x:Name="Version" HorizontalAlignment="Left" Margin="314,99,0,0" Text="App version: " TextWrapping="Wrap" VerticalAlignment="Top" FontSize="20"/>
             <Slider x:Name="LevelSlider" HorizontalAlignment="Left" Margin="950,393,0,0" VerticalAlignment="Top" Width="32" Orientation="Vertical" Height="127" Minimum="1" Maximum="18" ManipulationCompleted="Slider_ManipulationCompleted" ManipulationMode="All"/>
