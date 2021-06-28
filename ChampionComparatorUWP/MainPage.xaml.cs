@@ -6,6 +6,7 @@ using System.IO;
 using System.Linq;
 using System.Net.Http;
 using Windows.ApplicationModel;
+using Windows.System.Profile;
 using Windows.UI;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
@@ -209,6 +210,24 @@ namespace ChampionComparatorUWP
         public MainPage()
         {
             InitializeComponent();
+            // Set font to Segoe UI Variable in Windows 11
+            string deviceFamilyVersion = AnalyticsInfo.VersionInfo.DeviceFamilyVersion;
+            ulong version = ulong.Parse(deviceFamilyVersion);
+            ulong build = (version & 0x00000000FFFF0000L) >> 16;
+            if (build >= 22000)
+            {
+                foreach (UIElement child in MainGrid.Children)
+                {
+                    if (child is TextBlock block)
+                    {
+                        block.FontFamily = new FontFamily("Segoe UI Variable Display");
+                    }
+                    if (child is AutoSuggestBox box)
+                    {
+                        box.FontFamily = new FontFamily("Segoe UI Variable Display");
+                    }
+                }
+            }
             // Set grid height to hide extra space
             MainGrid.Height = 1280;
             // Hide stats and champ names
