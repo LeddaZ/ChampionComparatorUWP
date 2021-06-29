@@ -221,17 +221,7 @@ namespace ChampionComparatorUWP
             // Set font to Segoe UI Variable on Windows 11
             if (winVer.Equals("11"))
             {
-                foreach (UIElement child in MainGrid.Children)
-                {
-                    if (child is TextBlock block)
-                    {
-                        block.FontFamily = new FontFamily("Segoe UI Variable Display");
-                    }
-                    if (child is AutoSuggestBox box)
-                    {
-                        box.FontFamily = new FontFamily("Segoe UI Variable Display");
-                    }
-                }
+                InitialPage.FontFamily = new FontFamily("Segoe UI Variable Display");
             }
             // Set grid height to hide extra space
             MainGrid.Height = 1280;
