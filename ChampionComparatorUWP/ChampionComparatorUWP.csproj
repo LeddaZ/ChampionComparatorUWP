@@ -682,6 +682,9 @@
     <PackageReference Include="Newtonsoft.Json">
       <Version>13.0.1</Version>
     </PackageReference>
+    <PackageReference Include="Octokit">
+      <Version>0.50.0</Version>
+    </PackageReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="ChampionComparatorUWP_TemporaryKey.pfx" />

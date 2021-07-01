@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using Octokit;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
@@ -16,10 +17,11 @@ using Windows.UI.Xaml.Media.Imaging;
 
 namespace ChampionComparatorUWP
 {
-    public sealed partial class MainPage : Page
+    public sealed partial class MainPage : Windows.UI.Xaml.Controls.Page
     {
         public static string latestPatch;
         private string champ1, champ2, ch1, ch2, winVer, winBuild;
+        private Version latestVersion;
         private readonly string[] stats = new string[46];
         private readonly HttpClient client = new HttpClient();
 
@@ -43,6 +45,45 @@ namespace ChampionComparatorUWP
             "Vladimir", "Volibear", "Warwick", "Xayah", "Xerath", "XinZhao", "Yasuo", "Yone", "Yorick", "Yuumi",
             "Zac", "Zed", "Ziggs", "Zilean", "Zoe", "Zyra"
         };
+
+        // Check for updates
+        private async System.Threading.Tasks.Task CheckUpdates()
+        {
+            GitHubClient client = new GitHubClient(new ProductHeaderValue("doodoo"));
+            IReadOnlyList<Release> releases = await client.Repository.Release.GetAll("LeddaZ", "ChampionComparatorUWP");
+
+            //Setup versions
+            latestVersion = new Version(releases[0].Name);
+            Version localVersion = new Version(GetVersion());
+
+            //Compare the Versions
+            int versionComparison = localVersion.CompareTo(latestVersion);
+            if (versionComparison < 0)
+            {
+                //The version on GitHub is more up to date than this local release.
+                ShowUpdateDialog();
+            }
+        }
+
+        // Show update dialog
+        private async void ShowUpdateDialog()
+        {
+            ContentDialog updateDialog = new ContentDialog
+            {
+                Title = "Update available",
+                Content = $"Current version: {GetVersion()}\nLatest version: {latestVersion}",
+                PrimaryButtonText = "Update",
+                CloseButtonText = "Ignore"
+            };
+            ContentDialogResult result = await updateDialog.ShowAsync();
+
+            // Go to GitHub if the user clicks the "Update" button
+            if (result == ContentDialogResult.Primary)
+            {
+                Uri uri = new Uri(@"https://github.com/LeddaZ/ChampionComparatorUWP/releases/latest");
+                _ = await Windows.System.Launcher.LaunchUriAsync(uri);
+            }
+        }
 
         // Get Windows version and build
         private void GetWinVer()
@@ -247,6 +288,7 @@ namespace ChampionComparatorUWP
             Level.Text = "Level: 1";
             LevelSlider.Value = 1;
             GetPatch();
+            CheckUpdates();
         }
 
         // Gets latest patch number and displays it
