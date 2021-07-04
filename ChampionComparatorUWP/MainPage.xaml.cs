@@ -266,10 +266,10 @@ namespace ChampionComparatorUWP
             }
             // Set grid height to hide extra space
             MainGrid.Height = 1280;
-            // Hide stats and champ names
+            // Hide stats, champ names and level text
             foreach (TextBlock textBlock in GetAllTextBlocks())
             {
-                if (textBlock.Name.StartsWith("Res") || textBlock.Name.EndsWith("Name"))
+                if (textBlock.Name.StartsWith("Res") || textBlock.Name.EndsWith("Name") || textBlock.Name.Equals("Level"))
                 {
                     textBlock.Visibility = Visibility.Collapsed;
                 }
@@ -279,6 +279,8 @@ namespace ChampionComparatorUWP
             {
                 t.Visibility = Visibility.Collapsed;
             }
+            // Hide level slider
+            LevelSlider.Visibility = Visibility.Collapsed;
             // Hide patch notes link
             PatchNotes.Visibility = Visibility.Collapsed;
             // Disable advanced stats button
@@ -494,6 +496,10 @@ namespace ChampionComparatorUWP
 
                 // Enable advanced stats button
                 AdvancedBtn.IsEnabled = true;
+
+                // Show level text and slider
+                Level.Visibility = Visibility.Visible;
+                LevelSlider.Visibility = Visibility.Visible;
             }
         }
 
