@@ -1,7 +1,5 @@
 ﻿// ChampionsComparator.Champion2
 
-using System.Collections.Generic;
-
 namespace ChampionComparatorUWP
 {
     public class Champion2

@@ -1,12 +1,4 @@
-﻿using Newtonsoft.Json;
-using Octokit;
-using System;
-using System.Collections.Generic;
-using System.Globalization;
-using System.IO;
-using System.Linq;
-using System.Net.Http;
-using Windows.ApplicationModel;
+﻿using Windows.ApplicationModel;
 using Windows.System.Profile;
 using Windows.UI;
 using Windows.UI.Xaml;
