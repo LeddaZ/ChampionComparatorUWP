@@ -258,6 +258,13 @@ namespace ChampionComparatorUWP
         public MainPage()
         {
             InitializeComponent();
+            // Acrylic background
+            InitialPage.Background = new AcrylicBrush()
+            {
+                BackgroundSource = AcrylicBackgroundSource.HostBackdrop,
+                Opacity = 0.3,
+                TintOpacity = 0.45
+            };
             GetWinVer();
             // Set font to Segoe UI Variable on Windows 11
             if (winVer.Equals("11"))
