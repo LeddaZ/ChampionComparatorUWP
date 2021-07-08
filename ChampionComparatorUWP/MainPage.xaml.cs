@@ -43,6 +43,13 @@ namespace ChampionComparatorUWP
             Opacity = 0.3,
             TintOpacity = 0.45
         };
+        // Other brushes
+        private readonly SolidColorBrush lightGreen = new SolidColorBrush(Colors.Green);
+        private readonly SolidColorBrush darkGreen = new SolidColorBrush(ColorHelper.FromArgb(255, 114, 245, 71));
+        private readonly SolidColorBrush lightRed = new SolidColorBrush(Colors.Red);
+        private readonly SolidColorBrush darkRed = new SolidColorBrush(ColorHelper.FromArgb(255, 247, 75, 69));
+        private readonly SolidColorBrush lightBlue = new SolidColorBrush(ColorHelper.FromArgb(255, 15, 82, 186));
+        private readonly SolidColorBrush darkBlue = new SolidColorBrush(ColorHelper.FromArgb(255, 63, 130, 232));
 
         // Autocomplete source
         private readonly List<string> autosrc = new List<string>()
@@ -268,18 +275,18 @@ namespace ChampionComparatorUWP
         {
             if (Convert.ToDouble(tb1.Text) > Convert.ToDouble(tb2.Text))
             {
-                tb1.Foreground = new SolidColorBrush(Colors.Green);
-                tb2.Foreground = new SolidColorBrush(Colors.Red);
+                tb1.Foreground = GetSystemTheme().Equals("#FFFFFFFF") ? lightGreen : darkGreen;
+                tb2.Foreground = GetSystemTheme().Equals("#FFFFFFFF") ? lightRed : darkRed;
             }
             else if (Convert.ToDouble(tb1.Text) == Convert.ToDouble(tb2.Text))
             {
-                tb1.Foreground = new SolidColorBrush(Colors.Blue);
-                tb2.Foreground = new SolidColorBrush(Colors.Blue);
+                tb1.Foreground = GetSystemTheme().Equals("#FFFFFFFF") ? lightBlue : darkBlue;
+                tb2.Foreground = GetSystemTheme().Equals("#FFFFFFFF") ? lightBlue : darkBlue;
             }
             else
             {
-                tb2.Foreground = new SolidColorBrush(Colors.Green);
-                tb1.Foreground = new SolidColorBrush(Colors.Red);
+                tb2.Foreground = GetSystemTheme().Equals("#FFFFFFFF") ? lightGreen : darkGreen;
+                tb1.Foreground = GetSystemTheme().Equals("#FFFFFFFF") ? lightRed : darkRed;
             }
         }
 
@@ -289,18 +296,18 @@ namespace ChampionComparatorUWP
         {
             if (stat1 > stat2)
             {
-                tb1.Foreground = new SolidColorBrush(Colors.Green);
-                tb2.Foreground = new SolidColorBrush(Colors.Red);
+                tb1.Foreground = GetSystemTheme().Equals("#FFFFFFFF") ? lightGreen : darkGreen;
+                tb2.Foreground = GetSystemTheme().Equals("#FFFFFFFF") ? lightRed : darkRed;
             }
             else if (stat1 == stat2)
             {
-                tb1.Foreground = new SolidColorBrush(ColorHelper.FromArgb(255, 15, 82, 186));
-                tb2.Foreground = new SolidColorBrush(ColorHelper.FromArgb(255, 15, 82, 186));
+                tb1.Foreground = GetSystemTheme().Equals("#FFFFFFFF") ? lightBlue : darkBlue;
+                tb2.Foreground = GetSystemTheme().Equals("#FFFFFFFF") ? lightBlue : darkBlue;
             }
             else
             {
-                tb2.Foreground = new SolidColorBrush(Colors.Green);
-                tb1.Foreground = new SolidColorBrush(Colors.Red);
+                tb2.Foreground = GetSystemTheme().Equals("#FFFFFFFF") ? lightGreen : darkGreen;
+                tb1.Foreground = GetSystemTheme().Equals("#FFFFFFFF") ? lightRed : darkRed;
             }
         }
 
