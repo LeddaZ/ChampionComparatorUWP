@@ -128,29 +128,22 @@ namespace ChampionComparatorUWP
             int versionComparison = localVersion.CompareTo(latestVersion);
             if (versionComparison < 0)
             {
-                //The version on GitHub is more up to date than this local release.
-                ShowUpdateDialog();
-            }
-        }
+                ContentDialog updateDialog = new ContentDialog
+                {
+                    Title = "Update available",
+                    Content = $"Current version: {GetVersion()}\nLatest version: {latestVersion}",
+                    PrimaryButtonText = "Update",
+                    CloseButtonText = "Ignore"
+                };
+                updateDialog.Background = GetSystemTheme().Equals("#FFFFFFFF") ? lightDialogBrush : darkDialogBrush;
+                ContentDialogResult result = await updateDialog.ShowAsync();
 
-        // Show update dialog
-        private async void ShowUpdateDialog()
-        {
-            ContentDialog updateDialog = new ContentDialog
-            {
-                Title = "Update available",
-                Content = $"Current version: {GetVersion()}\nLatest version: {latestVersion}",
-                PrimaryButtonText = "Update",
-                CloseButtonText = "Ignore"
-            };
-            updateDialog.Background = GetSystemTheme().Equals("#FFFFFFFF") ? lightDialogBrush : darkDialogBrush;
-            ContentDialogResult result = await updateDialog.ShowAsync();
-
-            // Go to GitHub if the user clicks the "Update" button
-            if (result == ContentDialogResult.Primary)
-            {
-                Uri uri = new Uri(@"https://github.com/LeddaZ/ChampionComparatorUWP/releases/latest");
-                _ = await Windows.System.Launcher.LaunchUriAsync(uri);
+                // Go to GitHub if the user clicks the "Update" button
+                if (result == ContentDialogResult.Primary)
+                {
+                    Uri uri = new Uri(@"https://github.com/LeddaZ/ChampionComparatorUWP/releases/latest");
+                    _ = await Windows.System.Launcher.LaunchUriAsync(uri);
+                }
             }
         }
 
@@ -533,8 +526,8 @@ namespace ChampionComparatorUWP
             }
         }
 
-        // About dialog
-        private async void DisplayAboutDialog()
+        // Called when the About button is clicked
+        private async void AboutBtn_Click(object sender, RoutedEventArgs e)
         {
             ContentDialog aboutDialog = new ContentDialog
             {
@@ -545,12 +538,6 @@ namespace ChampionComparatorUWP
             };
             aboutDialog.Background = GetSystemTheme().Equals("#FFFFFFFF") ? lightDialogBrush : darkDialogBrush;
             _ = await aboutDialog.ShowAsync();
-        }
-
-        // Called when the About button is clicked
-        private void AboutBtn_Click(object sender, RoutedEventArgs e)
-        {
-            DisplayAboutDialog();
         }
 
         // Easter eggs
