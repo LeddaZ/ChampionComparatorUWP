@@ -75,6 +75,13 @@ namespace ChampionComparatorUWP
                 PrimaryButtonText = "Update",
                 CloseButtonText = "Ignore"
             };
+            // Acrylic background
+            updateDialog.Background = new AcrylicBrush()
+            {
+                BackgroundSource = AcrylicBackgroundSource.HostBackdrop,
+                Opacity = 0.8,
+                TintOpacity = 0.1
+            };
             ContentDialogResult result = await updateDialog.ShowAsync();
 
             // Go to GitHub if the user clicks the "Update" button
@@ -517,7 +524,15 @@ namespace ChampionComparatorUWP
             {
                 Title = "About this app",
                 Content = $"UWP app to compare two League of Legends champions. Created from ChampionComparatorGUI, which is based on ChampionComparator, the console-only version of CCGUI (not public).\nRunning on Windows {winVer} build {winBuild}\nHow do I know? Magic.",
-                CloseButtonText = "Thank you LeddaZ, very cool!"
+                CloseButtonText = "Thank you LeddaZ, very cool!",
+
+            };
+            // Acrylic background
+            aboutDialog.Background = new AcrylicBrush()
+            {
+                BackgroundSource = AcrylicBackgroundSource.HostBackdrop,
+                Opacity = 0.8,
+                TintOpacity = 0.1
             };
             _ = await aboutDialog.ShowAsync();
         }
