@@ -467,15 +467,10 @@ namespace ChampionComparatorUWP
                 }
 
                 UpdateColors(champion1.stats.attackdamage, champion2.stats.attackdamage, Res19, Res20);
-
                 UpdateColors(champion1.stats.attackrange, champion2.stats.attackrange, Res23, Res24);
-
                 UpdateColors(champion1.stats.attackspeed, champion2.stats.attackspeed, Res25, Res26);
-
                 UpdateColors(champion1.stats.armor, champion2.stats.armor, Res29, Res30);
-
                 UpdateColors(champion1.stats.spellblock, champion2.stats.spellblock, Res33, Res34);
-
                 UpdateColors(champion1.stats.movespeed, champion2.stats.movespeed, Res37, Res38);
 
                 // Create an array to store stats labels and champ names
