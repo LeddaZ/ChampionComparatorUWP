@@ -533,8 +533,7 @@ namespace ChampionComparatorUWP
             {
                 Title = "About this app",
                 Content = $"UWP app to compare two League of Legends champions. Created from ChampionComparatorGUI, which is based on ChampionComparator, the console-only version of CCGUI (not public).\nRunning on Windows {winVer} build {winBuild}\nHow do I know? Magic.",
-                CloseButtonText = "Thank you LeddaZ, very cool!",
-
+                CloseButtonText = "Thank you LeddaZ, very cool!"
             };
             aboutDialog.Background = GetSystemTheme().Equals("#FFFFFFFF") ? lightDialogBrush : darkDialogBrush;
             _ = await aboutDialog.ShowAsync();
