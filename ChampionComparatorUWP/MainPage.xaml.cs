@@ -25,11 +25,17 @@ namespace ChampionComparatorUWP
         private readonly string[] stats = new string[46];
         private readonly HttpClient client = new HttpClient();
         // Acrylic brushes
-        private readonly AcrylicBrush dialogBrush = new AcrylicBrush()
+        private readonly AcrylicBrush darkDialogBrush = new AcrylicBrush()
         {
             BackgroundSource = AcrylicBackgroundSource.HostBackdrop,
             Opacity = 0.8,
             TintOpacity = 0.1
+        };
+        private readonly AcrylicBrush lightDialogBrush = new AcrylicBrush()
+        {
+            BackgroundSource = AcrylicBackgroundSource.HostBackdrop,
+            Opacity = 0.8,
+            TintOpacity = 1
         };
         private readonly AcrylicBrush backgroundBrush = new AcrylicBrush()
         {
@@ -100,6 +106,14 @@ namespace ChampionComparatorUWP
             CheckUpdates();
         }
 
+        // Get current system theme
+        private string GetSystemTheme()
+        {
+            Windows.UI.ViewManagement.UISettings uiSettings = new Windows.UI.ViewManagement.UISettings();
+            Color color = uiSettings.GetColorValue(Windows.UI.ViewManagement.UIColorType.Background);
+            return color.ToString();
+        }
+
         // Check for updates
         private async System.Threading.Tasks.Task CheckUpdates()
         {
@@ -129,7 +143,7 @@ namespace ChampionComparatorUWP
                 PrimaryButtonText = "Update",
                 CloseButtonText = "Ignore"
             };
-            updateDialog.Background = dialogBrush;
+            updateDialog.Background = GetSystemTheme().Equals("#FFFFFFFF") ? lightDialogBrush : darkDialogBrush;
             ContentDialogResult result = await updateDialog.ShowAsync();
 
             // Go to GitHub if the user clicks the "Update" button
@@ -529,8 +543,7 @@ namespace ChampionComparatorUWP
                 CloseButtonText = "Thank you LeddaZ, very cool!",
 
             };
-            // Acrylic background
-            aboutDialog.Background = dialogBrush;
+            aboutDialog.Background = GetSystemTheme().Equals("#FFFFFFFF") ? lightDialogBrush : darkDialogBrush;
             _ = await aboutDialog.ShowAsync();
         }
 
