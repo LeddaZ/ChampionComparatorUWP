@@ -24,6 +24,19 @@ namespace ChampionComparatorUWP
         private Version latestVersion;
         private readonly string[] stats = new string[46];
         private readonly HttpClient client = new HttpClient();
+        // Acrylic brushes
+        private readonly AcrylicBrush dialogBrush = new AcrylicBrush()
+        {
+            BackgroundSource = AcrylicBackgroundSource.HostBackdrop,
+            Opacity = 0.8,
+            TintOpacity = 0.1
+        };
+        private readonly AcrylicBrush backgroundBrush = new AcrylicBrush()
+        {
+            BackgroundSource = AcrylicBackgroundSource.HostBackdrop,
+            Opacity = 0.3,
+            TintOpacity = 0.45
+        };
 
         // Autocomplete source
         private readonly List<string> autosrc = new List<string>()
@@ -45,6 +58,47 @@ namespace ChampionComparatorUWP
             "Vladimir", "Volibear", "Warwick", "Xayah", "Xerath", "XinZhao", "Yasuo", "Yone", "Yorick", "Yuumi",
             "Zac", "Zed", "Ziggs", "Zilean", "Zoe", "Zyra"
         };
+
+        // Start of the big mess
+        public MainPage()
+        {
+            InitializeComponent();
+            // Acrylic background
+            InitialPage.Background = backgroundBrush;
+            GetWinVer();
+            // Set font to Segoe UI Variable on Windows 11
+            if (winVer.Equals("11"))
+            {
+                InitialPage.FontFamily = new FontFamily("Segoe UI Variable Display");
+            }
+            // Set grid height to hide extra space
+            MainGrid.Height = 1280;
+            // Hide stats, champ names and level text
+            foreach (TextBlock textBlock in GetAllTextBlocks())
+            {
+                if (textBlock.Name.StartsWith("Res") || textBlock.Name.EndsWith("Name") || textBlock.Name.Equals("Level"))
+                {
+                    textBlock.Visibility = Visibility.Collapsed;
+                }
+            }
+            // Hide advanced stats
+            foreach (TextBlock t in GetAdvancedStats())
+            {
+                t.Visibility = Visibility.Collapsed;
+            }
+            // Hide level slider
+            LevelSlider.Visibility = Visibility.Collapsed;
+            // Hide patch notes link
+            PatchNotes.Visibility = Visibility.Collapsed;
+            // Disable advanced stats button
+            AdvancedBtn.IsEnabled = false;
+            // Display app version
+            Version.Text += GetVersion();
+            Level.Text = "Level: 1";
+            LevelSlider.Value = 1;
+            GetPatch();
+            CheckUpdates();
+        }
 
         // Check for updates
         private async System.Threading.Tasks.Task CheckUpdates()
@@ -75,13 +129,7 @@ namespace ChampionComparatorUWP
                 PrimaryButtonText = "Update",
                 CloseButtonText = "Ignore"
             };
-            // Acrylic background
-            updateDialog.Background = new AcrylicBrush()
-            {
-                BackgroundSource = AcrylicBackgroundSource.HostBackdrop,
-                Opacity = 0.8,
-                TintOpacity = 0.1
-            };
+            updateDialog.Background = dialogBrush;
             ContentDialogResult result = await updateDialog.ShowAsync();
 
             // Go to GitHub if the user clicks the "Update" button
@@ -259,52 +307,6 @@ namespace ChampionComparatorUWP
                 Res31, Res32, Res35, Res36, AdvancedTitle
             };
             return advancedStats;
-        }
-
-        // Start of the big mess
-        public MainPage()
-        {
-            InitializeComponent();
-            // Acrylic background
-            InitialPage.Background = new AcrylicBrush()
-            {
-                BackgroundSource = AcrylicBackgroundSource.HostBackdrop,
-                Opacity = 0.3,
-                TintOpacity = 0.45
-            };
-            GetWinVer();
-            // Set font to Segoe UI Variable on Windows 11
-            if (winVer.Equals("11"))
-            {
-                InitialPage.FontFamily = new FontFamily("Segoe UI Variable Display");
-            }
-            // Set grid height to hide extra space
-            MainGrid.Height = 1280;
-            // Hide stats, champ names and level text
-            foreach (TextBlock textBlock in GetAllTextBlocks())
-            {
-                if (textBlock.Name.StartsWith("Res") || textBlock.Name.EndsWith("Name") || textBlock.Name.Equals("Level"))
-                {
-                    textBlock.Visibility = Visibility.Collapsed;
-                }
-            }
-            // Hide advanced stats
-            foreach (TextBlock t in GetAdvancedStats())
-            {
-                t.Visibility = Visibility.Collapsed;
-            }
-            // Hide level slider
-            LevelSlider.Visibility = Visibility.Collapsed;
-            // Hide patch notes link
-            PatchNotes.Visibility = Visibility.Collapsed;
-            // Disable advanced stats button
-            AdvancedBtn.IsEnabled = false;
-            // Display app version
-            Version.Text += GetVersion();
-            Level.Text = "Level: 1";
-            LevelSlider.Value = 1;
-            GetPatch();
-            CheckUpdates();
         }
 
         // Gets latest patch number and displays it
@@ -528,12 +530,7 @@ namespace ChampionComparatorUWP
 
             };
             // Acrylic background
-            aboutDialog.Background = new AcrylicBrush()
-            {
-                BackgroundSource = AcrylicBackgroundSource.HostBackdrop,
-                Opacity = 0.8,
-                TintOpacity = 0.1
-            };
+            aboutDialog.Background = dialogBrush;
             _ = await aboutDialog.ShowAsync();
         }
 
