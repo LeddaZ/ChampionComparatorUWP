@@ -529,7 +529,8 @@ namespace ChampionComparatorUWP
                 SecondChampBox.Text = "";
 
                 // Enable advanced stats button
-                if (!AdvancedBtn.IsEnabled) {
+                if (!AdvancedBtn.IsEnabled)
+                {
                     AdvancedBtn.IsEnabled = true;
                 }
 
