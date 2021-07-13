@@ -2,6 +2,7 @@
 using Octokit;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Globalization;
 using System.IO;
 using System.Linq;
@@ -24,6 +25,7 @@ namespace ChampionComparatorUWP
         private Version latestVersion;
         private readonly string[] stats = new string[46];
         private readonly HttpClient client = new HttpClient();
+        private int clickCount = 0;
         // Acrylic brushes
         private readonly AcrylicBrush darkDialogBrush = new AcrylicBrush()
         {
@@ -373,6 +375,10 @@ namespace ChampionComparatorUWP
         // Called when the Confirm button is clicked
         private void ConfirmBtn_Click(object sender, RoutedEventArgs e)
         {
+            // Increase click count
+            clickCount++;
+            Debug.WriteLine(clickCount);
+
             // Store champion names to display them later
             ch1 = FirstChampBox.Text;
             ch2 = SecondChampBox.Text;
@@ -484,7 +490,8 @@ namespace ChampionComparatorUWP
                 TextBlock[] blocks = new TextBlock[46];
 
                 /* Set every stat label and show stats, champ names and pics
-                 * (except advanced stats) */
+                 * (except advanced stats if the Confirm button has been clicked
+                 * for the first time since app launch) */
                 int i = 0;
                 foreach (TextBlock textBlock in GetAllTextBlocks())
                 {
@@ -500,9 +507,12 @@ namespace ChampionComparatorUWP
                         textBlock.Visibility = Visibility.Visible;
                     }
                 }
-                foreach (TextBlock textBlock in GetAdvancedStats())
+                if (clickCount == 1)
                 {
-                    textBlock.Visibility = Visibility.Collapsed;
+                    foreach (TextBlock textBlock in GetAdvancedStats())
+                    {
+                        textBlock.Visibility = Visibility.Collapsed;
+                    }
                 }
                 FirstChampName.Text = champion1.name;
                 SecondChampName.Text = champion2.name;
