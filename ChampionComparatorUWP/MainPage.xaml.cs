@@ -19,7 +19,7 @@ namespace ChampionComparatorUWP
 {
     public sealed partial class MainPage : Windows.UI.Xaml.Controls.Page
     {
-        public static string latestPatch;
+        public string latestPatch;
         private string champ1, champ2, ch1, ch2, winVer, winBuild;
         private Version latestVersion;
         private readonly string[] stats = new string[46];
@@ -339,7 +339,7 @@ namespace ChampionComparatorUWP
         }
 
         // Returns app version
-        public static string GetVersion()
+        public string GetVersion()
         {
             Package package = Package.Current;
             PackageId packageId = package.Id;
@@ -520,11 +520,16 @@ namespace ChampionComparatorUWP
                 SecondChampBox.Text = "";
 
                 // Enable advanced stats button
-                AdvancedBtn.IsEnabled = true;
+                if (!AdvancedBtn.IsEnabled) {
+                    AdvancedBtn.IsEnabled = true;
+                }
 
                 // Show level text and slider
-                Level.Visibility = Visibility.Visible;
-                LevelSlider.Visibility = Visibility.Visible;
+                if (Level.Visibility == Visibility.Collapsed || LevelSlider.Visibility == Visibility.Collapsed)
+                {
+                    Level.Visibility = Visibility.Visible;
+                    LevelSlider.Visibility = Visibility.Visible;
+                }
             }
         }
 
