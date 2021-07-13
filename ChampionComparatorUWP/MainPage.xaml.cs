@@ -2,7 +2,6 @@
 using Octokit;
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Globalization;
 using System.IO;
 using System.Linq;
@@ -378,7 +377,6 @@ namespace ChampionComparatorUWP
         {
             // Increase click count
             clickCount++;
-            Debug.WriteLine(clickCount);
 
             // Store champion names to display them later
             ch1 = FirstChampBox.Text;
