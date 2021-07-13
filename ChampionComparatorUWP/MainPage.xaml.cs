@@ -163,7 +163,8 @@ namespace ChampionComparatorUWP
             string deviceFamilyVersion = AnalyticsInfo.VersionInfo.DeviceFamilyVersion;
             ulong version = ulong.Parse(deviceFamilyVersion);
             ulong build = (version & 0x00000000FFFF0000L) >> 16;
-            winBuild = build.ToString();
+            ulong revision = (version & 0x000000000000FFFFL);
+            winBuild = build.ToString() + "." + revision.ToString();
             // Version
             winVer = build >= 21996 ? "11" : "10";
         }
