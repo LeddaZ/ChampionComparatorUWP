@@ -393,14 +393,14 @@ namespace ChampionComparatorUWP
             HttpResponseMessage response1 = await client.GetAsync(new Uri($@"http://ddragon.leagueoflegends.com/cdn/{latestPatch}/data/en_US/champion/{champ1}.json"));
             string json1 = await response1.Content.ReadAsStringAsync();
             Champion1.Root requestChampion1 = JsonConvert.DeserializeObject<Champion1.Root>(json1);
-            List<Champion1.Spell> spells = requestChampion1?.data[champ1].spells;
+            List<Champion1.Spell> spells = requestChampion1?.Data[champ1].Spells;
 
             HttpResponseMessage response2 = await client.GetAsync(new Uri($@"http://ddragon.leagueoflegends.com/cdn/{latestPatch}/data/en_US/champion/{champ2}.json"));
             string json2 = await response2.Content.ReadAsStringAsync();
             Champion2.Root requestChampion2 = JsonConvert.DeserializeObject<Champion2.Root>(json2);
-            List<Champion2.Spell> spells2 = requestChampion2?.data[champ2].spells;
+            List<Champion2.Spell> spells2 = requestChampion2?.Data[champ2].Spells;
 
-            if (requestChampion2 != null && requestChampion1 != null && requestChampion1.data.TryGetValue(champ1, out Champion1.Champion champion1) && requestChampion2.data.TryGetValue(champ2, out Champion2.Champion champion2))
+            if (requestChampion2 != null && requestChampion1 != null && requestChampion1.Data.TryGetValue(champ1, out Champion1.Champion champion1) && requestChampion2.Data.TryGetValue(champ2, out Champion2.Champion champion2))
             {
                 // Q cooldown
                 Champion1.Spell spell = spells[0];
@@ -417,60 +417,60 @@ namespace ChampionComparatorUWP
 
                 /* Store stats for both champs in a string array. I died inside to do this
                  * in the original ChampionComparatorGUI */
-                stats[0] = champion1.stats.hp.ToString();
-                stats[1] = champion2.stats.hp.ToString();
-                stats[2] = $"+{champion1.stats.hpperlevel}";
-                stats[3] = $"+{champion2.stats.hpperlevel}";
-                stats[4] = (champion1.stats.hpregen / 5).ToString();
-                stats[5] = (champion2.stats.hpregen / 5).ToString();
-                stats[6] = $"+{champion1.stats.hpregenperlevel / 5}";
-                stats[7] = $"+{champion2.stats.hpregenperlevel / 5}";
-                stats[8] = champion1.partype;
-                stats[9] = champion2.partype;
-                stats[10] = champion1.stats.mp.ToString();
-                stats[11] = champion2.stats.mp.ToString();
-                stats[12] = $"+{champion1.stats.mpperlevel}";
-                stats[13] = $"+{champion2.stats.mpperlevel}";
-                stats[14] = (champion1.stats.mpregen / 5).ToString();
-                stats[15] = (champion2.stats.mpregen / 5).ToString();
-                stats[16] = $"+{champion1.stats.mpregenperlevel / 5}";
-                stats[17] = $"+{champion2.stats.mpregenperlevel / 5}";
-                stats[18] = champion1.stats.attackdamage.ToString();
-                stats[19] = champion2.stats.attackdamage.ToString();
-                stats[20] = $"+{champion1.stats.attackdamageperlevel}";
-                stats[21] = $"+{champion2.stats.attackdamageperlevel}";
-                stats[22] = champion1.stats.attackrange.ToString();
-                stats[23] = champion2.stats.attackrange.ToString();
-                stats[24] = champion1.stats.attackspeed.ToString();
-                stats[25] = champion2.stats.attackspeed.ToString();
-                stats[26] = $"{champion1.stats.attackspeedperlevel}%";
-                stats[27] = $"{champion2.stats.attackspeedperlevel}%";
-                stats[28] = champion1.stats.armor.ToString();
-                stats[29] = champion2.stats.armor.ToString();
-                stats[30] = $"+{champion1.stats.armorperlevel}";
-                stats[31] = $"+{champion2.stats.armorperlevel}";
-                stats[32] = champion1.stats.spellblock.ToString();
-                stats[33] = champion2.stats.spellblock.ToString();
-                stats[34] = $"+{champion1.stats.spellblockperlevel}";
-                stats[35] = $"+{champion2.stats.spellblockperlevel}";
-                stats[36] = champion1.stats.movespeed.ToString();
-                stats[37] = champion2.stats.movespeed.ToString();
-                stats[38] = spell.cooldownBurn;
-                stats[39] = spell2.cooldownBurn;
-                stats[40] = spell3.cooldownBurn;
-                stats[41] = spell4.cooldownBurn;
-                stats[42] = spell5.cooldownBurn;
-                stats[43] = spell6.cooldownBurn;
-                stats[44] = spell7.cooldownBurn;
-                stats[45] = spell8.cooldownBurn;
+                stats[0] = champion1.Stats.Hp.ToString();
+                stats[1] = champion2.Stats.Hp.ToString();
+                stats[2] = $"+{champion1.Stats.HpPerLevel}";
+                stats[3] = $"+{champion1.Stats.HpPerLevel}";
+                stats[4] = (champion1.Stats.HpRegen / 5).ToString();
+                stats[5] = (champion2.Stats.HpRegen / 5).ToString();
+                stats[6] = $"+{champion1.Stats.HpRegenPerLevel / 5}";
+                stats[7] = $"+{champion2.Stats.HpRegenPerLevel / 5}";
+                stats[8] = champion1.ParType;
+                stats[9] = champion2.ParType;
+                stats[10] = champion1.Stats.Mp.ToString();
+                stats[11] = champion2.Stats.Mp.ToString();
+                stats[12] = $"+{champion1.Stats.MpPerLevel}";
+                stats[13] = $"+{champion2.Stats.MpPerLevel}";
+                stats[14] = (champion1.Stats.MpRegen / 5).ToString();
+                stats[15] = (champion2.Stats.MpRegen / 5).ToString();
+                stats[16] = $"+{champion1.Stats.MpRegenPerLevel / 5}";
+                stats[17] = $"+{champion2.Stats.MpRegenPerLevel / 5}";
+                stats[18] = champion1.Stats.AttackDamage.ToString();
+                stats[19] = champion2.Stats.AttackDamage.ToString();
+                stats[20] = $"+{champion1.Stats.AttackDamagePerLevel}";
+                stats[21] = $"+{champion2.Stats.AttackDamagePerLevel}";
+                stats[22] = champion1.Stats.AttackRange.ToString();
+                stats[23] = champion2.Stats.AttackRange.ToString();
+                stats[24] = champion1.Stats.AttackSpeed.ToString();
+                stats[25] = champion2.Stats.AttackSpeed.ToString();
+                stats[26] = $"{champion1.Stats.AttackSpeedPerLevel}%";
+                stats[27] = $"{champion2.Stats.AttackSpeedPerLevel}%";
+                stats[28] = champion1.Stats.Armor.ToString();
+                stats[29] = champion2.Stats.Armor.ToString();
+                stats[30] = $"+{champion1.Stats.ArmorPerLevel}";
+                stats[31] = $"+{champion2.Stats.ArmorPerLevel}";
+                stats[32] = champion1.Stats.SpellBlock.ToString();
+                stats[33] = champion2.Stats.SpellBlock.ToString();
+                stats[34] = $"+{champion1.Stats.SpellBlockPerLevel}";
+                stats[35] = $"+{champion2.Stats.SpellBlockPerLevel}";
+                stats[36] = champion1.Stats.MoveSpeed.ToString();
+                stats[37] = champion2.Stats.MoveSpeed.ToString();
+                stats[38] = spell.CooldownBurn;
+                stats[39] = spell2.CooldownBurn;
+                stats[40] = spell3.CooldownBurn;
+                stats[41] = spell4.CooldownBurn;
+                stats[42] = spell5.CooldownBurn;
+                stats[43] = spell6.CooldownBurn;
+                stats[44] = spell7.CooldownBurn;
+                stats[45] = spell8.CooldownBurn;
 
                 /* Set the colors of the most important stats. Netu died inside to do this,
                  * but Ledda made it more simple */
-                UpdateColors(champion1.stats.hp, champion2.stats.hp, Res1, Res2);
+                UpdateColors(champion1.Stats.Hp, champion2.Stats.Hp, Res1, Res2);
 
-                if (champion1.partype == champion2.partype)
+                if (champion1.ParType == champion2.ParType)
                 {
-                    UpdateColors(champion1.stats.mp, champion2.stats.mp, Res11, Res12);
+                    UpdateColors(champion1.Stats.Mp, champion2.Stats.Mp, Res11, Res12);
                 }
                 else
                 {
@@ -478,12 +478,12 @@ namespace ChampionComparatorUWP
                     Res12.Foreground = new SolidColorBrush(ColorHelper.FromArgb(255, 119, 123, 126));
                 }
 
-                UpdateColors(champion1.stats.attackdamage, champion2.stats.attackdamage, Res19, Res20);
-                UpdateColors(champion1.stats.attackrange, champion2.stats.attackrange, Res23, Res24);
-                UpdateColors(champion1.stats.attackspeed, champion2.stats.attackspeed, Res25, Res26);
-                UpdateColors(champion1.stats.armor, champion2.stats.armor, Res29, Res30);
-                UpdateColors(champion1.stats.spellblock, champion2.stats.spellblock, Res33, Res34);
-                UpdateColors(champion1.stats.movespeed, champion2.stats.movespeed, Res37, Res38);
+                UpdateColors(champion1.Stats.AttackDamage, champion2.Stats.AttackDamage, Res19, Res20);
+                UpdateColors(champion1.Stats.AttackRange, champion2.Stats.AttackRange, Res23, Res24);
+                UpdateColors(champion1.Stats.AttackSpeed, champion2.Stats.AttackSpeed, Res25, Res26);
+                UpdateColors(champion1.Stats.Armor, champion2.Stats.Armor, Res29, Res30);
+                UpdateColors(champion1.Stats.SpellBlock, champion2.Stats.SpellBlock, Res33, Res34);
+                UpdateColors(champion1.Stats.MoveSpeed, champion2.Stats.MoveSpeed, Res37, Res38);
 
                 // Create an array to store stats labels and champ names
                 TextBlock[] blocks = new TextBlock[46];
@@ -513,8 +513,8 @@ namespace ChampionComparatorUWP
                         textBlock.Visibility = Visibility.Collapsed;
                     }
                 }
-                FirstChampName.Text = champion1.name;
-                SecondChampName.Text = champion2.name;
+                FirstChampName.Text = champion1.Name;
+                SecondChampName.Text = champion2.Name;
                 Uri champion1Path = new Uri($@"ms-appx:///Assets/Champions/{ch1}.png");
                 Uri champion2Path = new Uri($@"ms-appx:///Assets/Champions/{ch2}.png");
                 FirstChampImage.Source = File.Exists(champion1Path.ToString())

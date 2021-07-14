@@ -1,4 +1,4 @@
-﻿// ChampionsComparator.Champion2
+﻿// ChampionsComparator.Champion1
 
 using System.Collections.Generic;
 
@@ -8,91 +8,91 @@ namespace ChampionComparatorUWP
     {
         public class Image
         {
-            public string full { get; set; }
+            public string Full { get; set; }
 
-            public string sprite { get; set; }
+            public string Sprite { get; set; }
 
-            public string group { get; set; }
+            public string Group { get; set; }
 
-            public double x { get; set; }
+            public double X { get; set; }
 
-            public double y { get; set; }
+            public double Y { get; set; }
 
-            public double w { get; set; }
+            public double W { get; set; }
 
-            public double h { get; set; }
+            public double H { get; set; }
         }
 
         public class Skin
         {
-            public string id { get; set; }
+            public string Id { get; set; }
 
-            public double num { get; set; }
+            public double Num { get; set; }
 
-            public string name { get; set; }
+            public string Name { get; set; }
 
-            public bool chromas { get; set; }
+            public bool Chromas { get; set; }
         }
 
         public class Info
         {
-            public double attack { get; set; }
+            public double Attack { get; set; }
 
-            public double defense { get; set; }
+            public double Defense { get; set; }
 
-            public double magic { get; set; }
+            public double Magic { get; set; }
 
-            public double difficulty { get; set; }
+            public double Difficulty { get; set; }
         }
 
         public class Stats
         {
-            public double hp { get; set; }
+            public double Hp { get; set; }
 
-            public double hpperlevel { get; set; }
+            public double HpPerLevel { get; set; }
 
-            public double mp { get; set; }
+            public double Mp { get; set; }
 
-            public double mpperlevel { get; set; }
+            public double MpPerLevel { get; set; }
 
-            public double movespeed { get; set; }
+            public double MoveSpeed { get; set; }
 
-            public double armor { get; set; }
+            public double Armor { get; set; }
 
-            public double armorperlevel { get; set; }
+            public double ArmorPerLevel { get; set; }
 
-            public double spellblock { get; set; }
+            public double SpellBlock { get; set; }
 
-            public double spellblockperlevel { get; set; }
+            public double SpellBlockPerLevel { get; set; }
 
-            public double attackrange { get; set; }
+            public double AttackRange { get; set; }
 
-            public double hpregen { get; set; }
+            public double HpRegen { get; set; }
 
-            public double hpregenperlevel { get; set; }
+            public double HpRegenPerLevel { get; set; }
 
-            public double mpregen { get; set; }
+            public double MpRegen { get; set; }
 
-            public double mpregenperlevel { get; set; }
+            public double MpRegenPerLevel { get; set; }
 
-            public double crit { get; set; }
+            public double Crit { get; set; }
 
-            public double critperlevel { get; set; }
+            public double CritPerLevel { get; set; }
 
-            public double attackdamage { get; set; }
+            public double AttackDamage { get; set; }
 
-            public double attackdamageperlevel { get; set; }
+            public double AttackDamagePerLevel { get; set; }
 
-            public double attackspeedperlevel { get; set; }
+            public double AttackSpeedPerLevel { get; set; }
 
-            public double attackspeed { get; set; }
+            public double AttackSpeed { get; set; }
         }
 
         public class Leveltip
         {
-            public List<string> label { get; set; }
+            public List<string> Label { get; set; }
 
-            public List<string> effect { get; set; }
+            public List<string> Effect { get; set; }
         }
 
         public class Datavalues
@@ -101,102 +101,102 @@ namespace ChampionComparatorUWP
 
         public class Spell
         {
-            public string id { get; set; }
+            public string Id { get; set; }
 
-            public string name { get; set; }
+            public string Name { get; set; }
 
-            public string description { get; set; }
+            public string Description { get; set; }
 
-            public string tooltip { get; set; }
+            public string Tooltip { get; set; }
 
-            public Leveltip leveltip { get; set; }
+            public Leveltip LevelTip { get; set; }
 
-            public double maxrank { get; set; }
+            public double MaxRank { get; set; }
 
-            public List<double> cooldown { get; set; }
+            public List<double> Cooldown { get; set; }
 
-            public string cooldownBurn { get; set; }
+            public string CooldownBurn { get; set; }
 
-            public List<double> cost { get; set; }
+            public List<double> Cost { get; set; }
 
-            public string costBurn { get; set; }
+            public string CostBurn { get; set; }
 
-            public Datavalues datavalues { get; set; }
+            public Datavalues Datavalues { get; set; }
 
-            public List<List<double>> effect { get; set; }
+            public List<List<double>> Effect { get; set; }
 
-            public List<string> effectBurn { get; set; }
+            public List<string> EffectBurn { get; set; }
 
-            public List<object> vars { get; set; }
+            public List<object> Vars { get; set; }
 
-            public string costType { get; set; }
+            public string CostType { get; set; }
 
-            public string maxammo { get; set; }
+            public string MaxAmmo { get; set; }
 
-            public List<double> range { get; set; }
+            public List<double> Range { get; set; }
 
-            public string rangeBurn { get; set; }
+            public string RangeBurn { get; set; }
 
-            public Image image { get; set; }
+            public Image Image { get; set; }
 
-            public string resource { get; set; }
+            public string Resource { get; set; }
         }
 
         public class Passive
         {
-            public string name { get; set; }
+            public string Name { get; set; }
 
-            public string description { get; set; }
+            public string Description { get; set; }
 
-            public Image image { get; set; }
+            public Image Image { get; set; }
         }
 
         public class Champion
         {
-            public string id { get; set; }
+            public string Id { get; set; }
 
-            public string key { get; set; }
+            public string Key { get; set; }
 
-            public string name { get; set; }
+            public string Name { get; set; }
 
-            public string title { get; set; }
+            public string Title { get; set; }
 
-            public Image image { get; set; }
+            public Image Image { get; set; }
 
-            public List<Skin> skins { get; set; }
+            public List<Skin> Skins { get; set; }
 
-            public string lore { get; set; }
+            public string Lore { get; set; }
 
-            public string blurb { get; set; }
+            public string Blurb { get; set; }
 
-            public List<string> allytips { get; set; }
+            public List<string> AllyTips { get; set; }
 
-            public List<string> enemytips { get; set; }
+            public List<string> EnemyTips { get; set; }
 
-            public List<string> tags { get; set; }
+            public List<string> Tags { get; set; }
 
-            public string partype { get; set; }
+            public string ParType { get; set; }
 
-            public Info info { get; set; }
+            public Info Info { get; set; }
 
-            public Stats stats { get; set; }
+            public Stats Stats { get; set; }
 
-            public List<Spell> spells { get; set; }
+            public List<Spell> Spells { get; set; }
 
-            public Passive passive { get; set; }
+            public Passive Passive { get; set; }
 
-            public List<object> recommended { get; set; }
+            public List<object> Recommended { get; set; }
         }
 
         public class Root
         {
-            public string type { get; set; }
+            public string Type { get; set; }
 
-            public string format { get; set; }
+            public string Format { get; set; }
 
-            public string version { get; set; }
+            public string Version { get; set; }
 
-            public Dictionary<string, Champion> data { get; set; }
+            public Dictionary<string, Champion> Data { get; set; }
         }
     }
 }
