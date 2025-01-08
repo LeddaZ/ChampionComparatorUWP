@@ -2,7 +2,7 @@
 UWP version of [ChampionComparatorGUI](https://github.com/LeddaZ/ChampionComparatorGUI). Requires Windows 10 1709 or newer.
 
 ## Instructions
-You can download the latest release from [here](https://github.com/LeddaZ/ChampionComparatorUWP/releases/latest). Since this app is self-signed, you'll need to install [this](https://github.com/LeddaZ/LeddaZ.github.io/raw/master/files/certificate.cer) certificate before installing the app.
+You can download the latest release from [here](https://github.com/LeddaZ/ChampionComparatorUWP/releases/latest). Since this app is self-signed, you'll need to install [this](https://github.com/LeddaZ/ChampionComparatorUWP/raw/master/certificate.cer) certificate before installing the app.
 
 - Double click on `certificate.cer` and install it to local machine.
 - Choose `Place all certificates in the following store` > `Browse` > `Trusted Root Certification Authorities`
